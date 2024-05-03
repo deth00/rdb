@@ -20,4 +20,5 @@ class AppImage {
   static const qr = 'assets/images/qr.png';
   static const profile = 'assets/icons/profile.png';
   static const show = 'assets/icons/show.png';
+  static const trn = 'assets/icons/transection.png';
 }
