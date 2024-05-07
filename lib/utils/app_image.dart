@@ -21,4 +21,8 @@ class AppImage {
   static const profile = 'assets/icons/profile.png';
   static const show = 'assets/icons/show.png';
   static const trn = 'assets/icons/transection.png';
+  static const key = 'assets/icons/key.png';
+  static const finger = 'assets/icons/finger.png';
+  static const mobile = 'assets/icons/mobile.png';
+  static const noti = 'assets/icons/noti.png';
 }
