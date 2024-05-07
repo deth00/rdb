@@ -4,14 +4,14 @@ import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
 import 'package:rdb_gro_app/widgets/service_buttom.dart';
 
-class ServicePage extends StatefulWidget {
-  const ServicePage({super.key});
+class SettingPage extends StatefulWidget {
+  const SettingPage({super.key});
 
   @override
-  State<ServicePage> createState() => _ServicePageState();
+  State<SettingPage> createState() => _SettingPageState();
 }
 
-class _ServicePageState extends State<ServicePage> {
+class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,15 +36,16 @@ class _ServicePageState extends State<ServicePage> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 80, right: 20),
-                    child: Image.asset(
-                      AppImage.other,
+                  const Padding(
+                    padding: EdgeInsets.only(left: 80, right: 20),
+                    child: Icon(
+                      Icons.settings,
                       color: Colors.white,
+                      size: 30,
                     ),
                   ),
                   const Text(
-                    'ບໍລິການອື່ນໆ',
+                    'ການຕັ້ງຄ່າ',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 22,
@@ -55,21 +56,25 @@ class _ServicePageState extends State<ServicePage> {
             ),
             const SizedBox(height: 10),
             const ServiceButtom(
-                title: 'ສະຖານທີ່ບໍລິການ',
-                text: 'ສາຂາ ແລະ ໜ່ວຍບໍລິການ',
-                image: AppImage.location),
+              title: 'ປ່ຽນລະຫັດໃໝ່',
+              text: 'ປ່ຽນລະຫັດຜ່ານເຂົ້າສູ່ລະບົບ',
+              image: AppImage.key,
+            ),
             const ServiceButtom(
-                title: 'ຄ່າທຳນຽມ',
-                text: 'ຄ່າທຳນຽມບໍລິການຕ່າງໆຂອງ RDB',
-                image: AppImage.fees),
+              title: 'ຕັ້ງຄ່າລາຍນິ້ວມຶ',
+              text: 'ເປີດ/ປິດ ການເຂົ້າສູ່ລະບົບດ້ວຍນິ້ວມື',
+              image: AppImage.finger,
+            ),
             const ServiceButtom(
-                title: 'ອັດຕາດອກເບ້ຍ',
-                text: 'ດອກເບ້ຍເງິນຝາກ ແລະ ກູ້ຢືມ',
-                image: AppImage.rate),
+              title: 'ຈັດການອຸປະກອນ',
+              text: 'ກຳນົດອຸປະກອນທີ່ໃຊ້ຮັບການແຈ້ງເຕືອນ',
+              image: AppImage.mobile,
+            ),
             const ServiceButtom(
-                title: 'ຂ່າວສານ',
-                text: 'ເບິ່ງຂໍ້ມູນຂ່າວສານຂອງ ທພບ',
-                image: AppImage.news),
+              title: 'ຕັ້ງຄ່າເນື້ອໃນການແຈ້ງເຕືອນ',
+              text: 'ດອກເບ້ຍເງິນຝາກ ແລະ ກູ້ຢືມ ',
+              image: AppImage.noti,
+            ),
           ],
         ),
       ),

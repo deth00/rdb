@@ -1,11 +1,13 @@
 import 'package:get/get.dart';
 import 'package:rdb_gro_app/view/home/dashborad_page.dart';
 import 'package:rdb_gro_app/view/home/info_page.dart';
+import 'package:rdb_gro_app/view/home/transition_page.dart';
 import 'package:rdb_gro_app/view/service/calendar/calendar_page.dart';
 import 'package:rdb_gro_app/view/auth/login/login_page.dart';
 import 'package:rdb_gro_app/view/home/home_page.dart';
 import 'package:rdb_gro_app/view/service/service_page.dart';
 import 'package:rdb_gro_app/view/splash_screen.dart';
+import 'package:rdb_gro_app/widgets/navbar.dart';
 
 class RouteHelper {
   static const String initial = "/";
@@ -33,6 +35,12 @@ class RouteHelper {
   static const String dashborad = '/dashborad';
   static String getDashborad() => dashborad;
 
+  static const String transition = '/transition';
+  static String getTransition() => transition;
+
+  static const String navbar = '/navbar';
+  static String getNavbar() => navbar;
+
   static List<GetPage> routes = [
     GetPage(name: splashPage, page: () => const SplashScreen()),
     GetPage(name: login, page: () => const LoginPage()),
@@ -40,6 +48,8 @@ class RouteHelper {
     GetPage(name: home, page: () => const HomePage()),
     GetPage(name: info, page: () => const InfoPage()),
     GetPage(name: service, page: () => const ServicePage()),
-    GetPage(name: dashborad, page: () => const DashboradPage())
+    GetPage(name: dashborad, page: () => const DashboradPage()),
+    GetPage(name: transition, page: () => const TransitionPage()),
+    GetPage(name: navbar, page: () => const NavBar())
   ];
 }

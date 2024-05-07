@@ -67,7 +67,10 @@ class _LoginPageState extends State<LoginPage> {
                         Icons.lock_reset,
                         color: Colors.grey,
                       ),
-                      icon1: Icon(Icons.remove_red_eye_outlined),
+                      icon1: Icon(
+                        Icons.remove_red_eye_outlined,
+                        color: Colors.grey,
+                      ),
                     ),
                     const SizedBox(
                       height: 40,
@@ -340,13 +343,11 @@ class AppTextField extends StatelessWidget {
         ],
       ),
       child: TextField(
+        obscureText: true,
         style: const TextStyle(color: Colors.grey),
         decoration: InputDecoration(
           prefixIcon: icon,
-          suffixIcon: const Icon(
-            Icons.remove_red_eye,
-            color: Colors.grey,
-          ),
+          suffixIcon: icon1,
           fillColor: Colors.grey.shade100,
           filled: true,
           enabledBorder: OutlineInputBorder(

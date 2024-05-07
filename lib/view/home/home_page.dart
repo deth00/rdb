@@ -24,22 +24,19 @@ class _HomePageState extends State<HomePage> {
               width: double.infinity,
               color: AppColors.bgColor,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 8),
-                    child: Column(
-                      children: [
-                        Image.asset(AppImage.cont),
-                        const Text(
-                          'ຕິດຕໍ່ພະນັກງານ',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        )
-                      ],
+                    padding: const EdgeInsets.only(top: 4),
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: const Icon(
+                        Icons.arrow_left_rounded,
+                        size: 60,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                   const Text(
@@ -50,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 22),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 8),
+                    padding: const EdgeInsets.only(top: 12, right: 8),
                     child: Column(
                       children: [
                         Image.asset(AppImage.logout),
@@ -164,7 +161,7 @@ class _HomePageState extends State<HomePage> {
             ),
             GestureDetector(
               onTap: () {
-                Get.toNamed(RouteHelper.getDashborad());
+                Get.toNamed(RouteHelper.getNavbar());
               },
               child: Container(
                 height: 165,

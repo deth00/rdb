@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:rdb_gro_app/route/route_helper.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
-import 'package:rdb_gro_app/widgets/navbar.dart';
 
 class DashboradPage extends StatefulWidget {
   const DashboradPage({super.key});
@@ -16,11 +15,53 @@ class _DashboradPageState extends State<DashboradPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const NavBar(),
       body: SafeArea(
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Container(
+            height: 65,
+            width: double.infinity,
+            color: AppColors.bgColor,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 4),
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: const Icon(
+                      Icons.arrow_left_rounded,
+                      size: 60,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                const Text(
+                  'ບັນຊີເງິນຝາກ',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 22),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 12, right: 8),
+                  child: Column(
+                    children: [
+                      Image.asset(AppImage.logout),
+                      const Text('ອອກລະບົບ',
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white))
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
           Container(
             height: 100,
             width: double.infinity,
@@ -75,21 +116,26 @@ class _DashboradPageState extends State<DashboradPage> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 10),
-            child: Container(
-              height: 120,
-              width: 120,
-              decoration: BoxDecoration(
-                color: Colors.white,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Image.asset(AppImage.trn),
-                  const Text(
-                    'ການເຄື່ອນໄຫວ',
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ],
+            child: GestureDetector(
+              onTap: () {
+                Get.toNamed(RouteHelper.getTransition());
+              },
+              child: Container(
+                height: 120,
+                width: 120,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Image.asset(AppImage.trn),
+                    const Text(
+                      'ການເຄື່ອນໄຫວ',
+                      style: TextStyle(fontSize: 15),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
