@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rdb_gro_app/route/route_helper.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
 import 'package:rdb_gro_app/widgets/service_buttom.dart';
@@ -54,14 +55,21 @@ class _ServicePageState extends State<ServicePage> {
               ),
             ),
             const SizedBox(height: 10),
-            const ServiceButtom(
+            ServiceButtom(
                 title: 'ສະຖານທີ່ບໍລິການ',
                 text: 'ສາຂາ ແລະ ໜ່ວຍບໍລິການ',
-                image: AppImage.location),
-            const ServiceButtom(
-                title: 'ຄ່າທຳນຽມ',
-                text: 'ຄ່າທຳນຽມບໍລິການຕ່າງໆຂອງ RDB',
-                image: AppImage.fees),
+                image: AppImage.location,
+                onpress: () {
+                  Get.toNamed(RouteHelper.getLocalService());
+                }),
+            ServiceButtom(
+              title: 'ຄ່າທຳນຽມ',
+              text: 'ຄ່າທຳນຽມບໍລິການຕ່າງໆຂອງ RDB',
+              image: AppImage.fees,
+              onpress: () {
+                Get.toNamed(RouteHelper.getFees());
+              },
+            ),
             const ServiceButtom(
                 title: 'ອັດຕາດອກເບ້ຍ',
                 text: 'ດອກເບ້ຍເງິນຝາກ ແລະ ກູ້ຢືມ',

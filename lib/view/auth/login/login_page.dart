@@ -12,6 +12,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool _isObscure = true;
+  TextEditingController phoneControl = TextEditingController();
+  TextEditingController pwControl = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +24,7 @@ class _LoginPageState extends State<LoginPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              
               const SizedBox(
                 height: 45,
               ),
@@ -53,24 +58,37 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ],
                       ),
-                      child: const AppTextField(
+                      child: AppTextField(
+                        obs: false,
+                        controller: phoneControl,
                         text: 'ເບີໂທ 020 xxxx xxxx',
-                        icon: Icon(Icons.account_circle, color: Colors.grey),
+                        icon: const Icon(Icons.account_circle,
+                            color: Colors.grey),
                       ),
                     ),
                     const SizedBox(
                       height: 25,
                     ),
-                    const AppTextField(
+                    AppTextField(
+                      obs: _isObscure,
+                      controller: pwControl,
                       text: 'ລະຫັດ: ********',
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.lock_reset,
                         color: Colors.grey,
                       ),
-                      icon1: Icon(
-                        Icons.remove_red_eye_outlined,
-                        color: Colors.grey,
-                      ),
+                      icon1: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _isObscure = !_isObscure;
+                            });
+                          },
+                          icon: Icon(
+                            _isObscure
+                                ? Icons.remove_red_eye_outlined
+                                : Icons.redo_rounded,
+                            color: Colors.grey,
+                          )),
                     ),
                     const SizedBox(
                       height: 40,
@@ -321,11 +339,16 @@ class AppTextField extends StatelessWidget {
   final String text;
   final Widget icon;
   final Widget? icon1;
+  final bool obs;
+  final TextEditingController controller;
+
   const AppTextField({
     super.key,
     required this.text,
     required this.icon,
     this.icon1,
+    required this.obs,
+    required this.controller,
   });
 
   @override
@@ -343,7 +366,8 @@ class AppTextField extends StatelessWidget {
         ],
       ),
       child: TextField(
-        obscureText: true,
+        controller: controller,
+        obscureText: obs,
         style: const TextStyle(color: Colors.grey),
         decoration: InputDecoration(
           prefixIcon: icon,

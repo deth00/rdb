@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
 
@@ -25,20 +26,16 @@ class _InfoPageState extends State<InfoPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8),
-                    child: Column(
-                      children: [
-                        Image.asset(AppImage.cont),
-                        const Text(
-                          'ຕິດຕໍ່ພະນັກງານ',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        )
-                      ],
+                  GestureDetector(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: Image.asset(
+                        AppImage.back,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                   const Text(
@@ -64,10 +61,23 @@ class _InfoPageState extends State<InfoPage> {
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: MediaQuery.of(context).size.height / 6,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: AppColors.mainColor,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                ),
+              ),
+            ),
             Container(
               height: 100,
               width: double.infinity,
-              color: AppColors.mainColor,
+              // color: AppColors.mainColor,
               child: Row(
                 children: [
                   Padding(
@@ -87,10 +97,16 @@ class _InfoPageState extends State<InfoPage> {
                           const SizedBox(width: 40),
                           Image.asset(AppImage.show),
                         ],
-                      )
+                      ),
                     ],
                   )
                 ],
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 4, right: 4),
+              child: Divider(
+                color: Colors.grey,
               ),
             ),
             const Padding(
