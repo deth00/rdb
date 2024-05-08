@@ -3,8 +3,11 @@ import 'package:get/get.dart';
 import 'package:rdb_gro_app/generated/locales.g.dart';
 import 'package:rdb_gro_app/route/route_helper.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'helper/dependencies.dart' as dep;
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dep.init();
   initializeDateFormatting('lo_LO', null).then((_) => runApp(const MyApp()));
 }
 

@@ -5,6 +5,8 @@ import 'package:rdb_gro_app/view/home/transition_page.dart';
 import 'package:rdb_gro_app/view/service/calendar/calendar_page.dart';
 import 'package:rdb_gro_app/view/auth/login/login_page.dart';
 import 'package:rdb_gro_app/view/home/home_page.dart';
+import 'package:rdb_gro_app/view/service/fees_page.dart';
+import 'package:rdb_gro_app/view/service/local/local_service_page.dart';
 import 'package:rdb_gro_app/view/service/service_page.dart';
 import 'package:rdb_gro_app/view/splash_screen.dart';
 import 'package:rdb_gro_app/widgets/navbar.dart';
@@ -38,18 +40,56 @@ class RouteHelper {
   static const String transition = '/transition';
   static String getTransition() => transition;
 
+  static const String localservice = '/localservice';
+  static String getLocalService() => localservice;
+
+  static const String fees = '/fees';
+  static String getFees() => fees;
+
   static const String navbar = '/navbar';
   static String getNavbar() => navbar;
 
   static List<GetPage> routes = [
     GetPage(name: splashPage, page: () => const SplashScreen()),
-    GetPage(name: login, page: () => const LoginPage()),
-    GetPage(name: calendar, page: () => const CalendarPage()),
-    GetPage(name: home, page: () => const HomePage()),
-    GetPage(name: info, page: () => const InfoPage()),
-    GetPage(name: service, page: () => const ServicePage()),
-    GetPage(name: dashborad, page: () => const DashboradPage()),
-    GetPage(name: transition, page: () => const TransitionPage()),
-    GetPage(name: navbar, page: () => const NavBar())
+    GetPage(
+        name: login,
+        page: () => const LoginPage(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: navbar,
+        page: () => const NavBar(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: calendar,
+        page: () => const CalendarPage(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: home,
+        page: () => const HomePage(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: info,
+        page: () => const InfoPage(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: service,
+        page: () => const ServicePage(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: dashborad,
+        page: () => const DashboradPage(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: transition,
+        page: () => const TransitionPage(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: localservice,
+        page: () => const LocalServicePage(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: fees,
+        page: () => const FeesPage(),
+        transition: Transition.fadeIn),
   ];
 }
