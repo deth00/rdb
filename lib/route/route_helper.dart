@@ -7,6 +7,7 @@ import 'package:rdb_gro_app/view/auth/login/login_page.dart';
 import 'package:rdb_gro_app/view/home/home_page.dart';
 import 'package:rdb_gro_app/view/service/fees_page.dart';
 import 'package:rdb_gro_app/view/service/local/local_service_page.dart';
+import 'package:rdb_gro_app/view/service/news_page.dart';
 import 'package:rdb_gro_app/view/service/service_page.dart';
 import 'package:rdb_gro_app/view/splash_screen.dart';
 import 'package:rdb_gro_app/widgets/navbar.dart';
@@ -45,6 +46,9 @@ class RouteHelper {
 
   static const String fees = '/fees';
   static String getFees() => fees;
+
+  static const String news = '/news';
+  static String getNews() => news;
 
   static const String navbar = '/navbar';
   static String getNavbar() => navbar;
@@ -90,6 +94,10 @@ class RouteHelper {
     GetPage(
         name: fees,
         page: () => const FeesPage(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: news,
+        page: () => const NewsPage(),
         transition: Transition.fadeIn),
   ];
 }

@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rdb_gro_app/controller/news_controller.dart';
+import 'package:rdb_gro_app/controller/slider_controller.dart';
 import 'package:rdb_gro_app/route/route_helper.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
@@ -19,8 +21,14 @@ class _SplashScreenState extends State<SplashScreen>
   late Animation<double> animation;
   late AnimationController controller;
 
+  Future<void> _loadResources() async {
+    await Get.find<SliderController>().getSlider();
+    await Get.find<NewsController>().getNews();
+  }
+
   @override
   void initState() {
+    _loadResources();
     super.initState();
     controller =
         AnimationController(vsync: this, duration: const Duration(seconds: 1))

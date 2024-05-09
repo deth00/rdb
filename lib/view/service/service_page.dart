@@ -80,10 +80,14 @@ class _ServicePageState extends State<ServicePage> {
                 text: 'ດອກເບ້ຍເງິນຝາກ ແລະ ກູ້ຢືມ',
                 image: AppImage.rate),
             SizedBox(height: Dimensions.height10),
-            const ServiceButtom(
-                title: 'ຂ່າວສານ',
-                text: 'ເບິ່ງຂໍ້ມູນຂ່າວສານຂອງ ທພບ',
-                image: AppImage.news),
+            ServiceButtom(
+              title: 'ຂ່າວສານ',
+              text: 'ເບິ່ງຂໍ້ມູນຂ່າວສານຂອງ ທພບ',
+              image: AppImage.news,
+              onpress: () {
+                Get.toNamed(RouteHelper.getNews());
+              },
+            ),
           ],
         ),
       ),

@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rdb_gro_app/controller/slider_controller.dart';
 import 'package:rdb_gro_app/route/route_helper.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
@@ -61,30 +62,42 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            Padding(
-              padding: EdgeInsets.all(Dimensions.height10),
-              child: Container(
-                height: Dimensions.height180,
-                width: double.infinity,
-                child: CarouselSlider(
-                  options: CarouselOptions(height: Dimensions.height360),
-                  items: [1, 2, 3, 4, 5].map((i) {
-                    return Builder(
-                      builder: (BuildContext context) {
-                        return Container(
-                          width: MediaQuery.of(context).size.width,
-                          margin: const EdgeInsets.symmetric(horizontal: 3.0),
-                          decoration: BoxDecoration(
-                            color: Colors.amber,
-                            borderRadius:
-                                BorderRadius.circular(Dimensions.radius15),
-                          ),
-                        );
-                      },
-                    );
-                  }).toList(),
-                ),
-              ),
+            GetBuilder<SliderController>(
+              builder: (data) {
+                if (data.slider.isNotEmpty) {
+                  return Padding(
+                    padding: EdgeInsets.all(Dimensions.height10),
+                    child: Container(
+                      height: Dimensions.height180,
+                      width: double.infinity,
+                      child: CarouselSlider.builder(
+                        itemCount: data.slider.length,
+                        itemBuilder: (context, index, realIndex) {
+                          return Container(
+                            width: MediaQuery.of(context).size.width,
+                            margin: const EdgeInsets.symmetric(horizontal: 3.0),
+                            decoration: BoxDecoration(
+                                color: Colors.amber,
+                                borderRadius:
+                                    BorderRadius.circular(Dimensions.radius15),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        'https://web.nbb.com.la/${data.slider[index].img}'),
+                                    fit: BoxFit.cover)),
+                          );
+                        },
+                        options: CarouselOptions(
+                          autoPlay: true,
+                          aspectRatio: 2.0,
+                          enlargeCenterPage: true,
+                        ),
+                      ),
+                    ),
+                  );
+                } else {
+                  return Text('null');
+                }
+              },
             ),
             Container(
               height: Dimensions.height120,
