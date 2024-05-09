@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
+import 'package:rdb_gro_app/utils/dimensions.dart';
 import 'package:rdb_gro_app/widgets/service_buttom.dart';
 
 class FeesPage extends StatefulWidget {
@@ -19,7 +20,7 @@ class _FeesPageState extends State<FeesPage> {
         child: Column(
           children: [
             Container(
-              height: 55,
+              height: Dimensions.height55,
               width: double.infinity,
               decoration: BoxDecoration(color: AppColors.bgColor),
               child: Row(
@@ -29,7 +30,8 @@ class _FeesPageState extends State<FeesPage> {
                       Get.back();
                     },
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      padding: EdgeInsets.only(
+                          left: Dimensions.width20, right: Dimensions.width20),
                       child: Image.asset(
                         AppImage.back,
                         color: Colors.white,
@@ -37,22 +39,24 @@ class _FeesPageState extends State<FeesPage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 80, right: 10),
+                    padding: EdgeInsets.only(
+                        left: Dimensions.width60, right: Dimensions.width10),
                     child: Image.asset(
                       AppImage.fees,
                       // color: Colors.white,
                     ),
                   ),
-                  const Text(
+                  Text(
                     'ຄ່າທຳນຽມ',
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 22,
+                        fontSize: Dimensions.font20,
                         fontWeight: FontWeight.bold),
                   )
                 ],
               ),
             ),
+            SizedBox(height: Dimensions.height20),
             ServiceButtom(
                 title: 'ການບໍລິການດ້ານສິນເຊື່ອ',
                 text: 'ລາຍລະອຽດຄ່າບໍລິການດ້ານສິນເຊື່ອປະເພດຕ່າງໆ',

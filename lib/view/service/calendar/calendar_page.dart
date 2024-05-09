@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
+import 'package:rdb_gro_app/utils/dimensions.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class CalendarPage extends StatefulWidget {
@@ -21,8 +22,10 @@ class _CalendarPageState extends State<CalendarPage> {
         centerTitle: true,
         title: Text(
           'calendar'.tr,
-          style:
-              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: Dimensions.font20),
         ),
       ),
       body: SafeArea(

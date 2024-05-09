@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:rdb_gro_app/route/route_helper.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
+import 'package:rdb_gro_app/utils/dimensions.dart';
 import 'package:rdb_gro_app/widgets/service_buttom.dart';
 
 class ServicePage extends StatefulWidget {
@@ -20,7 +21,7 @@ class _ServicePageState extends State<ServicePage> {
         child: Column(
           children: [
             Container(
-              height: 55,
+              height: Dimensions.height55,
               width: double.infinity,
               decoration: BoxDecoration(color: AppColors.bgColor),
               child: Row(
@@ -30,7 +31,8 @@ class _ServicePageState extends State<ServicePage> {
                       Get.back();
                     },
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      padding: EdgeInsets.only(
+                          left: Dimensions.width15, right: Dimensions.width15),
                       child: Image.asset(
                         AppImage.back,
                         color: Colors.white,
@@ -38,23 +40,24 @@ class _ServicePageState extends State<ServicePage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 80, right: 20),
+                    padding: EdgeInsets.only(
+                        left: Dimensions.width60, right: Dimensions.width15),
                     child: Image.asset(
                       AppImage.other,
                       color: Colors.white,
                     ),
                   ),
-                  const Text(
+                  Text(
                     'ບໍລິການອື່ນໆ',
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 22,
+                        fontSize: Dimensions.font20,
                         fontWeight: FontWeight.bold),
                   )
                 ],
               ),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: Dimensions.height10),
             ServiceButtom(
                 title: 'ສະຖານທີ່ບໍລິການ',
                 text: 'ສາຂາ ແລະ ໜ່ວຍບໍລິການ',
@@ -62,6 +65,7 @@ class _ServicePageState extends State<ServicePage> {
                 onpress: () {
                   Get.toNamed(RouteHelper.getLocalService());
                 }),
+            SizedBox(height: Dimensions.height10),
             ServiceButtom(
               title: 'ຄ່າທຳນຽມ',
               text: 'ຄ່າທຳນຽມບໍລິການຕ່າງໆຂອງ RDB',
@@ -70,10 +74,12 @@ class _ServicePageState extends State<ServicePage> {
                 Get.toNamed(RouteHelper.getFees());
               },
             ),
+            SizedBox(height: Dimensions.height10),
             const ServiceButtom(
                 title: 'ອັດຕາດອກເບ້ຍ',
                 text: 'ດອກເບ້ຍເງິນຝາກ ແລະ ກູ້ຢືມ',
                 image: AppImage.rate),
+            SizedBox(height: Dimensions.height10),
             const ServiceButtom(
                 title: 'ຂ່າວສານ',
                 text: 'ເບິ່ງຂໍ້ມູນຂ່າວສານຂອງ ທພບ',
