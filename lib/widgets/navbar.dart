@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
+import 'package:rdb_gro_app/utils/dimensions.dart';
 import 'package:rdb_gro_app/view/home/dashborad_page.dart';
 import 'package:rdb_gro_app/view/home/transition_page.dart';
 import 'package:rdb_gro_app/view/service/service_page.dart';
@@ -18,11 +19,11 @@ class _NavBarState extends State<NavBar> {
   _widgetOptions(int index) {
     return IndexedStack(
       index: index,
-      children: [
-        const DashboradPage(),
-        const TransitionPage(),
-        const SettingPage(),
-        const ServicePage(),
+      children: const [
+        DashboradPage(),
+        TransitionPage(),
+        SettingPage(),
+        ServicePage(),
       ],
     );
   }
@@ -96,8 +97,7 @@ class _NavBarState extends State<NavBar> {
         setState(() {});
       },
       child: Container(
-        padding: const EdgeInsets.all(4),
-        height: 66,
+        height: Dimensions.height60,
         width: MediaQuery.of(context).size.width / 4,
         decoration: index == _sectectIndex
             ? const BoxDecoration(
@@ -112,7 +112,7 @@ class _NavBarState extends State<NavBar> {
                 ? SizedBox(child: widget)
                 : Icon(
                     icons,
-                    size: 38,
+                    size: Dimensions.iconSize38,
                     color: index == _sectectIndex
                         ? AppColors.mainColor
                         : Colors.white,
@@ -123,7 +123,7 @@ class _NavBarState extends State<NavBar> {
                   color: index == _sectectIndex
                       ? AppColors.mainColor
                       : Colors.white,
-                  fontSize: 14,
+                  fontSize: Dimensions.font14,
                   fontWeight: FontWeight.bold),
             )
           ],

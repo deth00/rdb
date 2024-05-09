@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:rdb_gro_app/route/route_helper.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
+import 'package:rdb_gro_app/utils/dimensions.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -36,27 +37,27 @@ class _SplashScreenState extends State<SplashScreen>
       body: SafeArea(
         child: Column(
           children: [
-            const SizedBox(height: 140),
+            SizedBox(height: Dimensions.height180),
             ScaleTransition(
               scale: animation,
               child: Center(
                 child: Image.asset(AppImage.logoRDB),
               ),
             ),
-            const SizedBox(height: 340),
+            SizedBox(height: Dimensions.height180),
             Text(
               'ທະນາຄານພັດທະນາຊົນນະບົດ',
               style: TextStyle(
                   color: AppColors.mainColor,
                   fontWeight: FontWeight.bold,
-                  fontSize: 18),
+                  fontSize: Dimensions.font16),
             ),
             Text(
               'RDB BANK',
               style: TextStyle(
                   color: AppColors.mainColor,
                   fontWeight: FontWeight.bold,
-                  fontSize: 18),
+                  fontSize: Dimensions.font16),
             ),
           ],
         ),

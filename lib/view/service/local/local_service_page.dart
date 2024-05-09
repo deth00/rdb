@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
+import 'package:rdb_gro_app/utils/dimensions.dart';
 
 class LocalServicePage extends StatefulWidget {
   const LocalServicePage({super.key});
@@ -18,7 +19,7 @@ class _LocalServicePageState extends State<LocalServicePage> {
         child: Column(
           children: [
             Container(
-              height: 55,
+              height: Dimensions.height55,
               width: double.infinity,
               decoration: BoxDecoration(color: AppColors.bgColor),
               child: Row(
@@ -28,7 +29,8 @@ class _LocalServicePageState extends State<LocalServicePage> {
                       Get.back();
                     },
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      padding: EdgeInsets.only(
+                          left: Dimensions.width20, right: Dimensions.width20),
                       child: Image.asset(
                         AppImage.back,
                         color: Colors.white,
@@ -36,38 +38,38 @@ class _LocalServicePageState extends State<LocalServicePage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 60, right: 10),
+                    padding: EdgeInsets.only(
+                        left: Dimensions.width45, right: Dimensions.width10),
                     child: Image.asset(
                       AppImage.location,
                       // color: Colors.white,
                     ),
                   ),
-                  const Text(
+                  Text(
                     'ສະຖານທີ່ບໍລິການ',
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 22,
+                        fontSize: Dimensions.font20,
                         fontWeight: FontWeight.bold),
                   )
                 ],
               ),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: Dimensions.height10),
             Expanded(
               child: ListView.builder(
                 itemCount: 5,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(Dimensions.height10),
                     child: Container(
-                      padding: const EdgeInsets.all(8),
-                      height: MediaQuery.of(context).size.height / 10,
+                      padding: EdgeInsets.all(Dimensions.height10),
+                      height: Dimensions.height100,
                       width: double.infinity,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.all(
-                            Radius.circular(
-                                MediaQuery.of(context).size.width / 18),
+                            Radius.circular(Dimensions.radius20),
                           ),
                           border:
                               Border.all(color: AppColors.mainColor, width: 2),
@@ -80,25 +82,28 @@ class _LocalServicePageState extends State<LocalServicePage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Column(
+                          Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 'ສຳນັກງານໃຫຍ່',
                                 style: TextStyle(
-                                    fontWeight: FontWeight.w500, fontSize: 18),
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: Dimensions.font20),
                               ),
                               Text(
                                 'ທີ່ຕັ້ງຂອງສຳນັກງານໃຫຍ່ ແລະ ໜ່ວຍບໍການທີ່ຂຶ້ນກັບ',
-                                style: TextStyle(color: Colors.grey),
+                                style: TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: Dimensions.font14),
                               ),
                             ],
                           ),
                           Icon(
                             Icons.arrow_right_rounded,
                             color: AppColors.mainColor,
-                            size: MediaQuery.of(context).size.height / 13,
+                            size: Dimensions.iconSize55,
                           )
                         ],
                       ),

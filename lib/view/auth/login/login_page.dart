@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:rdb_gro_app/route/route_helper.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
+import 'package:rdb_gro_app/utils/dimensions.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -24,9 +25,8 @@ class _LoginPageState extends State<LoginPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              
-              const SizedBox(
-                height: 45,
+              SizedBox(
+                height: Dimensions.height30,
               ),
               Center(
                 child: Image.asset(
@@ -35,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               Container(
-                height: 350,
+                height: Dimensions.height360,
                 width: double.infinity,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
@@ -43,18 +43,18 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 child: Column(
                   children: [
-                    const SizedBox(
-                      height: 30,
+                    SizedBox(
+                      height: Dimensions.height20,
                     ),
                     Container(
-                      height: 60,
-                      width: 360,
-                      decoration: const BoxDecoration(
+                      height: Dimensions.height60,
+                      width: Dimensions.width360,
+                      decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black12,
-                            blurRadius: 10,
-                            offset: Offset(0, 10),
+                            blurRadius: Dimensions.radius15,
+                            offset: const Offset(0, 10),
                           ),
                         ],
                       ),
@@ -66,44 +66,58 @@ class _LoginPageState extends State<LoginPage> {
                             color: Colors.grey),
                       ),
                     ),
-                    const SizedBox(
-                      height: 25,
+                    SizedBox(
+                      height: Dimensions.height30,
                     ),
-                    AppTextField(
-                      obs: _isObscure,
-                      controller: pwControl,
-                      text: 'ລະຫັດ: ********',
-                      icon: const Icon(
-                        Icons.lock_reset,
-                        color: Colors.grey,
+                    Container(
+                      height: Dimensions.height60,
+                      width: Dimensions.width360,
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: Dimensions.radius15,
+                            offset: const Offset(0, 10),
+                          ),
+                        ],
                       ),
-                      icon1: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              _isObscure = !_isObscure;
-                            });
-                          },
-                          icon: Icon(
-                            _isObscure
-                                ? Icons.remove_red_eye_outlined
-                                : Icons.redo_rounded,
-                            color: Colors.grey,
-                          )),
+                      child: AppTextField(
+                        obs: _isObscure,
+                        controller: pwControl,
+                        text: 'ລະຫັດ: ********',
+                        icon: const Icon(
+                          Icons.lock_reset,
+                          color: Colors.grey,
+                        ),
+                        icon1: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _isObscure = !_isObscure;
+                              });
+                            },
+                            icon: Icon(
+                              _isObscure
+                                  ? Icons.remove_red_eye_outlined
+                                  : Icons.redo_rounded,
+                              color: Colors.grey,
+                            )),
+                      ),
                     ),
-                    const SizedBox(
-                      height: 40,
+                    SizedBox(
+                      height: Dimensions.height30,
                     ),
                     GestureDetector(
                       onTap: () {
                         Get.toNamed(RouteHelper.getHome());
                       },
                       child: Container(
-                        height: 60,
-                        width: 360,
+                        height: Dimensions.height60,
+                        width: Dimensions.width360,
                         decoration: BoxDecoration(
                           color: AppColors.bgColor,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(20)),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(Dimensions.radius20),
+                          ),
                           boxShadow: const [
                             BoxShadow(
                               color: Colors.black12,
@@ -115,8 +129,8 @@ class _LoginPageState extends State<LoginPage> {
                         child: Center(
                           child: Text(
                             'login'.tr,
-                            style: const TextStyle(
-                                fontSize: 18,
+                            style: TextStyle(
+                                fontSize: Dimensions.font20,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 letterSpacing: 0.8),
@@ -133,12 +147,12 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
-                        height: 60,
-                        width: 180,
+                        height: Dimensions.height60,
+                        width: Dimensions.width180,
                         decoration: BoxDecoration(
                             color: AppColors.bgColor,
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(30),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(Dimensions.radius30),
                             ),
                             boxShadow: [
                               BoxShadow(
@@ -150,14 +164,15 @@ class _LoginPageState extends State<LoginPage> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 15, right: 10),
+                              padding: EdgeInsets.only(
+                                  left: Dimensions.width10,
+                                  right: Dimensions.width10),
                               child: Image.asset(AppImage.logoF),
                             ),
-                            const Text(
+                            Text(
                               'RDB BANK',
                               style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: Dimensions.font16,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white),
                             )
@@ -165,12 +180,12 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       Container(
-                        height: 60,
-                        width: 180,
+                        height: Dimensions.height60,
+                        width: Dimensions.width180,
                         decoration: BoxDecoration(
                             color: AppColors.bgColor,
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(30),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(Dimensions.radius30),
                             ),
                             boxShadow: [
                               BoxShadow(
@@ -182,14 +197,15 @@ class _LoginPageState extends State<LoginPage> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 15, right: 10),
+                              padding: EdgeInsets.only(
+                                  left: Dimensions.width10,
+                                  right: Dimensions.width10),
                               child: Image.asset(AppImage.iconW),
                             ),
-                            const Text(
+                            Text(
                               'www.nbb.com.la',
                               style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: Dimensions.font16,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white),
                             )
@@ -198,7 +214,7 @@ class _LoginPageState extends State<LoginPage> {
                       )
                     ],
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: Dimensions.height20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -207,12 +223,12 @@ class _LoginPageState extends State<LoginPage> {
                           Get.toNamed(RouteHelper.calendar);
                         },
                         child: Container(
-                          height: 60,
-                          width: 180,
+                          height: Dimensions.height60,
+                          width: Dimensions.width180,
                           decoration: BoxDecoration(
                               color: AppColors.bgColor,
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(30),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(Dimensions.radius30),
                               ),
                               boxShadow: [
                                 BoxShadow(
@@ -224,14 +240,15 @@ class _LoginPageState extends State<LoginPage> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 15, right: 10),
+                                padding: EdgeInsets.only(
+                                    left: Dimensions.width10,
+                                    right: Dimensions.width10),
                                 child: Image.asset(AppImage.calendar),
                               ),
                               Text(
                                 'calendar'.tr,
-                                style: const TextStyle(
-                                    fontSize: 20,
+                                style: TextStyle(
+                                    fontSize: Dimensions.font20,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               )
@@ -244,12 +261,12 @@ class _LoginPageState extends State<LoginPage> {
                           Get.toNamed(RouteHelper.getService());
                         },
                         child: Container(
-                          height: 60,
-                          width: 180,
+                          height: Dimensions.height60,
+                          width: Dimensions.width180,
                           decoration: BoxDecoration(
                               color: AppColors.bgColor,
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(30),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(Dimensions.radius30),
                               ),
                               boxShadow: [
                                 BoxShadow(
@@ -261,16 +278,17 @@ class _LoginPageState extends State<LoginPage> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 15, right: 10),
+                                padding: EdgeInsets.only(
+                                    left: Dimensions.width10,
+                                    right: Dimensions.width10),
                                 child: Image.asset(
                                   AppImage.other,
                                 ),
                               ),
-                              const Text(
+                              Text(
                                 'ບໍລິການອື່ນໆ',
                                 style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: Dimensions.font20,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               )
@@ -283,23 +301,23 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 15),
+                padding: EdgeInsets.symmetric(vertical: Dimensions.height15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       'ສອບຖາມຂໍ້ມູນເພີ່ມຕື່ມ?',
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(fontSize: Dimensions.font16),
                     ),
-                    const SizedBox(width: 10),
+                    SizedBox(width: Dimensions.width10),
                     GestureDetector(
                       child: Container(
                         height: 35,
                         width: 85,
                         decoration: BoxDecoration(
                             color: Colors.amber,
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(20),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(Dimensions.radius20),
                             ),
                             boxShadow: [
                               BoxShadow(
@@ -311,14 +329,14 @@ class _LoginPageState extends State<LoginPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Image.asset(AppImage.c),
-                            const Text(
+                            Text(
                               'ຕິດຕໍ່',
                               style: TextStyle(
                                   decoration: TextDecoration.underline,
                                   decorationColor: Colors.white,
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 16),
+                                  fontSize: Dimensions.font16),
                             ),
                           ],
                         ),
@@ -354,14 +372,14 @@ class AppTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
-      width: 360,
-      decoration: const BoxDecoration(
+      height: Dimensions.height60,
+      width: Dimensions.width360,
+      decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
             color: Colors.black12,
-            blurRadius: 10,
-            offset: Offset(0, 10),
+            blurRadius: Dimensions.radius15,
+            offset: const Offset(0, 10),
           ),
         ],
       ),
@@ -375,13 +393,13 @@ class AppTextField extends StatelessWidget {
           fillColor: Colors.grey.shade100,
           filled: true,
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
+            borderRadius: BorderRadius.circular(Dimensions.radius20),
             borderSide: const BorderSide(
               color: Colors.white,
             ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
+            borderRadius: BorderRadius.circular(Dimensions.radius20),
             borderSide: const BorderSide(
               color: Colors.white,
             ),
@@ -389,7 +407,7 @@ class AppTextField extends StatelessWidget {
           hintText: text,
           hintStyle: const TextStyle(color: Colors.grey, letterSpacing: 0.8),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
+            borderRadius: BorderRadius.circular(Dimensions.radius20),
           ),
         ),
       ),

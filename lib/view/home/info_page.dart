@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
+import 'package:rdb_gro_app/utils/dimensions.dart';
 
 class InfoPage extends StatefulWidget {
   const InfoPage({super.key});
@@ -31,28 +32,30 @@ class _InfoPageState extends State<InfoPage> {
                       Get.back();
                     },
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      padding: EdgeInsets.only(
+                          left: Dimensions.width20, right: Dimensions.width20),
                       child: Image.asset(
                         AppImage.back,
                         color: Colors.white,
                       ),
                     ),
                   ),
-                  const Text(
+                  Text(
                     'ຂໍ້ມູນບັນຊີ',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
-                        fontSize: 22),
+                        fontSize: Dimensions.font20),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 8),
+                    padding: EdgeInsets.only(
+                        top: Dimensions.height10, right: Dimensions.height10),
                     child: Column(
                       children: [
                         Image.asset(AppImage.logout),
-                        const Text('ອອກລະບົບ',
+                        Text('ອອກລະບົບ',
                             style: TextStyle(
-                                fontSize: 12,
+                                fontSize: Dimensions.font12,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white))
                       ],
@@ -62,27 +65,28 @@ class _InfoPageState extends State<InfoPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(Dimensions.height10),
               child: Container(
-                height: MediaQuery.of(context).size.height / 6,
+                height: Dimensions.height180,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: AppColors.mainColor,
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(10),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(Dimensions.radius15),
                   ),
                 ),
               ),
             ),
             Container(
-              height: 100,
+              height: Dimensions.height100,
               width: double.infinity,
               // color: AppColors.mainColor,
               child: Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 10),
+                    padding: EdgeInsets.symmetric(
+                        vertical: Dimensions.width10,
+                        horizontal: Dimensions.height10),
                     child: Image.asset(AppImage.profile),
                   ),
                   Column(
@@ -90,11 +94,11 @@ class _InfoPageState extends State<InfoPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text('ຊື່ບັນຊີ: PHONGSAVANH BOUBPHACHANH MR'),
-                      const SizedBox(height: 5),
+                      // SizedBox(height: Dimensions.height10),
                       Row(
                         children: [
                           const Text('ເລກບັນຊີ: 0201 11XXXXXXXXXXX'),
-                          const SizedBox(width: 40),
+                          SizedBox(width: Dimensions.width45),
                           Image.asset(AppImage.show),
                         ],
                       ),
@@ -103,14 +107,17 @@ class _InfoPageState extends State<InfoPage> {
                 ],
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 4, right: 4),
-              child: Divider(
+            Padding(
+              padding: EdgeInsets.only(
+                  left: Dimensions.width10, right: Dimensions.width10),
+              child: const Divider(
                 color: Colors.grey,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  vertical: Dimensions.width20,
+                  horizontal: Dimensions.height20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -121,62 +128,68 @@ class _InfoPageState extends State<InfoPage> {
                       Text(
                         'ປະເພດ: ',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
+                            fontWeight: FontWeight.bold,
+                            fontSize: Dimensions.font16),
                       ),
                       Text(
                         'ເລກທີ່ສັນຍາ: ',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
+                            fontWeight: FontWeight.bold,
+                            fontSize: Dimensions.font16),
                       ),
                       Text(
                         'ໄລຍະກູ້ຢືມ: ',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
+                            fontWeight: FontWeight.bold,
+                            fontSize: Dimensions.font16),
                       ),
                       Text(
                         'ຍອດໜີ້: ',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
+                            fontWeight: FontWeight.bold,
+                            fontSize: Dimensions.font16),
                       ),
                       Text(
                         'ອັດຕາດອກເບ້ຍ: ',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
+                            fontWeight: FontWeight.bold,
+                            fontSize: Dimensions.font16),
                       ),
                       Text(
                         'ຊັ້ນໜີ້: ',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
+                            fontWeight: FontWeight.bold,
+                            fontSize: Dimensions.font16),
                       ),
                     ],
                   ),
-                  SizedBox(width: 10),
+                  SizedBox(width: Dimensions.width10),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'ປະເພດ: ',
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: Dimensions.font16),
                       ),
                       Text(
                         'ເລກທີ່ສັນຍາ: ',
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: Dimensions.font16),
                       ),
                       Text(
                         'ໄລຍະກູ້ຢືມ: ',
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: Dimensions.font16),
                       ),
                       Text(
                         '200.000.000 kip ',
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: Dimensions.font16),
                       ),
                       Text(
                         '200.000 kip ',
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: Dimensions.font16),
                       ),
                       Text(
                         'ຊັ້ນໜີ້: ',
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: Dimensions.font16),
                       ),
                     ],
                   ),

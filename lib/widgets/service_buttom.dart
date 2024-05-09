@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:rdb_gro_app/utils/app_colors.dart';
+import 'package:rdb_gro_app/utils/dimensions.dart';
 
 class ServiceButtom extends StatelessWidget {
   final String title;
@@ -17,11 +19,14 @@ class ServiceButtom extends StatelessWidget {
     return GestureDetector(
       onTap: onpress,
       child: Container(
-        height: 95,
+        height: Dimensions.height100,
         width: double.infinity,
         color: Colors.white,
         child: Padding(
-          padding: const EdgeInsets.only(left: 15, right: 15, top: 5),
+          padding: EdgeInsets.only(
+            left: Dimensions.width15,
+            right: Dimensions.width15,
+          ),
           child: Column(
             children: [
               Row(
@@ -29,7 +34,7 @@ class ServiceButtom extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(right: 15),
+                    padding: EdgeInsets.only(right: Dimensions.width15),
                     child: Image.asset(
                       image,
                       scale: 0.88,
@@ -42,10 +47,10 @@ class ServiceButtom extends StatelessWidget {
                       children: [
                         Text(
                           title,
-                          style: const TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontSize: Dimensions.font20,
+                              fontWeight: FontWeight.bold),
                         ),
-                        const SizedBox(height: 5),
                         Text(
                           text,
                           overflow: TextOverflow.ellipsis,
@@ -55,12 +60,15 @@ class ServiceButtom extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const Icon(Icons.arrow_forward_ios)
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    color: AppColors.mainColor,
+                  )
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.only(left: 75, right: 0),
-                child: Divider(
+              Padding(
+                padding: EdgeInsets.only(left: Dimensions.width60, right: 0),
+                child: const Divider(
                   color: Colors.grey,
                 ),
               )

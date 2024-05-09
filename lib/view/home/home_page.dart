@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:rdb_gro_app/route/route_helper.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
+import 'package:rdb_gro_app/utils/dimensions.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,40 +21,38 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             Container(
-              height: 65,
+              height: Dimensions.height60,
               width: double.infinity,
               color: AppColors.bgColor,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 4),
-                    child: GestureDetector(
-                      onTap: () {
-                        Get.back();
-                      },
-                      child: const Icon(
-                        Icons.arrow_left_rounded,
-                        size: 60,
-                        color: Colors.white,
-                      ),
+                  GestureDetector(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: Icon(
+                      Icons.arrow_left_rounded,
+                      size: Dimensions.iconSize60,
+                      color: Colors.white,
                     ),
                   ),
-                  const Text(
+                  Text(
                     'RDB GROW',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
-                        fontSize: 22),
+                        fontSize: Dimensions.font20),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 12, right: 8),
+                    padding: EdgeInsets.only(
+                        top: Dimensions.height10, right: Dimensions.width10),
                     child: Column(
                       children: [
                         Image.asset(AppImage.logout),
-                        const Text('ອອກລະບົບ',
+                        Text('ອອກລະບົບ',
                             style: TextStyle(
-                                fontSize: 12,
+                                fontSize: Dimensions.font12,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white))
                       ],
@@ -63,12 +62,12 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(Dimensions.height10),
               child: Container(
-                height: 170,
+                height: Dimensions.height180,
                 width: double.infinity,
                 child: CarouselSlider(
-                  options: CarouselOptions(height: 400.0),
+                  options: CarouselOptions(height: Dimensions.height360),
                   items: [1, 2, 3, 4, 5].map((i) {
                     return Builder(
                       builder: (BuildContext context) {
@@ -77,7 +76,8 @@ class _HomePageState extends State<HomePage> {
                           margin: const EdgeInsets.symmetric(horizontal: 3.0),
                           decoration: BoxDecoration(
                             color: Colors.amber,
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius:
+                                BorderRadius.circular(Dimensions.radius15),
                           ),
                         );
                       },
@@ -87,66 +87,71 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              height: 150,
+              height: Dimensions.height120,
               width: double.infinity,
               color: AppColors.bgColor2,
               child: Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10),
+                padding: EdgeInsets.only(
+                    left: Dimensions.width10, right: Dimensions.width10),
                 child: Row(
                   // mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(right: 20),
+                      padding: EdgeInsets.only(right: Dimensions.width20),
                       child: Image.asset(
                         AppImage.photo,
-                        scale: 0.85,
+                        scale: MediaQuery.of(context).size.height / 980,
                       ),
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text(
+                        Text(
                           'Phongsavanh Boubphachanh',
                           style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w500),
+                              fontSize: Dimensions.font16,
+                              fontWeight: FontWeight.w500),
                         ),
-                        const SizedBox(height: 8),
-                        const Text(
+                        SizedBox(height: Dimensions.height10),
+                        Text(
                           'ພົງສະຫວັນ ບຸບຜາຈັນ',
-                          style: TextStyle(fontSize: 18, color: Colors.grey),
+                          style: TextStyle(
+                              fontSize: Dimensions.font16, color: Colors.grey),
                         ),
                         Row(
                           children: [
-                            const Text(
+                            Text(
                               '+85620 xxxx xxxx',
-                              style:
-                                  TextStyle(fontSize: 18, color: Colors.grey),
+                              style: TextStyle(
+                                  fontSize: Dimensions.font16,
+                                  color: Colors.grey),
                             ),
-                            const SizedBox(width: 40),
+                            SizedBox(width: Dimensions.width30),
                             GestureDetector(
                               onTap: () {
                                 Get.toNamed(RouteHelper.getInfo());
                               },
                               child: Container(
-                                height: 40,
-                                width: 80,
+                                height: Dimensions.height45,
+                                width: Dimensions.width100,
                                 decoration: BoxDecoration(
                                     color: AppColors.bgColor,
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(
+                                        Dimensions.radius20),
                                     boxShadow: [
                                       BoxShadow(
                                           color: Colors.grey.shade400,
                                           offset: const Offset(1, 2),
                                           blurRadius: 3)
                                     ]),
-                                child: const Center(
+                                child: Center(
                                   child: Text(
                                     'ເບິ່ງຂໍ້ມູນ',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 16),
+                                        fontSize: Dimensions.font16),
                                   ),
                                 ),
                               ),
@@ -164,42 +169,47 @@ class _HomePageState extends State<HomePage> {
                 Get.toNamed(RouteHelper.getNavbar());
               },
               child: Container(
-                height: 165,
+                height: Dimensions.height180,
                 width: double.infinity,
                 // color: Colors.amber,
                 child: Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 10),
+                      padding: EdgeInsets.only(
+                          left: Dimensions.width10, right: Dimensions.width10),
                       child: Image.asset(
                         AppImage.mF,
-                        scale: 0.85,
+                        scale: MediaQuery.of(context).size.height / 980,
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(right: 8),
+                    Padding(
+                      padding: EdgeInsets.only(right: Dimensions.width10),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             'ບັນຊີເງິນກູ້',
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(fontSize: Dimensions.font20),
                           ),
                           Text(
                             '0201 111 xxxxxxxxxx 63',
-                            style: TextStyle(color: Colors.grey, fontSize: 16),
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: Dimensions.font16),
                           ),
                           Text(
                             'Phongsavanh BPC',
-                            style: TextStyle(color: Colors.grey, fontSize: 16),
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: Dimensions.font16),
                           ),
                         ],
                       ),
                     ),
                     Image.asset(
                       AppImage.qr,
-                      scale: 0.8,
+                      scale: MediaQuery.of(context).size.height / 1000,
                     )
                   ],
                 ),
