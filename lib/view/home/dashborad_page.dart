@@ -21,7 +21,7 @@ class _DashboradPageState extends State<DashboradPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: Dimensions.height55,
+            height: Dimensions.height60,
             width: double.infinity,
             color: AppColors.bgColor,
             child: Row(

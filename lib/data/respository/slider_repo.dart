@@ -8,6 +8,7 @@ class SliderRepo extends GetxService {
 
   Future<Response> getSlider() async {
     Response response = await apiClient.getData(AppConstants.SLIDE_URL);
+    print('Slider ========== ${response.body.toString()}');
     return response;
   }
 }

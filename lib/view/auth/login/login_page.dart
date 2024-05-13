@@ -4,6 +4,7 @@ import 'package:rdb_gro_app/route/route_helper.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
 import 'package:rdb_gro_app/utils/dimensions.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -13,12 +14,21 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  Future<void>? _launched;
   bool _isObscure = true;
   TextEditingController phoneControl = TextEditingController();
   TextEditingController pwControl = TextEditingController();
+  Future<void> _launchInBrowserView(Uri url) async {
+    if (!await launchUrl(url, mode: LaunchMode.inAppBrowserView)) {
+      throw Exception('Could not launch $url');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    final Uri web = Uri(scheme: 'https', host: 'web.nbb.com.la');
+    final Uri fb =
+        Uri(scheme: 'https', host: 'www.facebook.com', path: 'nbb.com.la');
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -47,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: Dimensions.height20,
                     ),
                     Container(
-                      height: Dimensions.height60,
+                      height: Dimensions.height55,
                       width: Dimensions.width360,
                       decoration: BoxDecoration(
                         boxShadow: [
@@ -70,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: Dimensions.height30,
                     ),
                     Container(
-                      height: Dimensions.height60,
+                      height: Dimensions.height55,
                       width: Dimensions.width360,
                       decoration: BoxDecoration(
                         boxShadow: [
@@ -111,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                         Get.toNamed(RouteHelper.getHome());
                       },
                       child: Container(
-                        height: Dimensions.height60,
+                        height: Dimensions.height55,
                         width: Dimensions.width360,
                         decoration: BoxDecoration(
                           color: AppColors.bgColor,
@@ -147,7 +157,7 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
-                        height: Dimensions.height60,
+                        height: Dimensions.height45,
                         width: Dimensions.width180,
                         decoration: BoxDecoration(
                             color: AppColors.bgColor,
@@ -160,27 +170,34 @@ class _LoginPageState extends State<LoginPage> {
                                   offset: const Offset(0, 3),
                                   blurRadius: 7)
                             ]),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  left: Dimensions.width10,
-                                  right: Dimensions.width10),
-                              child: Image.asset(AppImage.logoF),
-                            ),
-                            Text(
-                              'RDB BANK',
-                              style: TextStyle(
-                                  fontSize: Dimensions.font16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            )
-                          ],
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _launched = _launchInBrowserView(fb);
+                            });
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: Dimensions.width10,
+                                    right: Dimensions.width10),
+                                child: Image.asset(AppImage.logoF),
+                              ),
+                              Text(
+                                'RDB BANK',
+                                style: TextStyle(
+                                    fontSize: Dimensions.font16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                       Container(
-                        height: Dimensions.height60,
+                        height: Dimensions.height45,
                         width: Dimensions.width180,
                         decoration: BoxDecoration(
                             color: AppColors.bgColor,
@@ -193,23 +210,30 @@ class _LoginPageState extends State<LoginPage> {
                                   offset: const Offset(0, 3),
                                   blurRadius: 7)
                             ]),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  left: Dimensions.width10,
-                                  right: Dimensions.width10),
-                              child: Image.asset(AppImage.iconW),
-                            ),
-                            Text(
-                              'www.nbb.com.la',
-                              style: TextStyle(
-                                  fontSize: Dimensions.font16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            )
-                          ],
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _launched = _launchInBrowserView(web);
+                            });
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: Dimensions.width10,
+                                    right: Dimensions.width10),
+                                child: Image.asset(AppImage.iconW),
+                              ),
+                              Text(
+                                'www.nbb.com.la',
+                                style: TextStyle(
+                                    fontSize: Dimensions.font16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              )
+                            ],
+                          ),
                         ),
                       )
                     ],
@@ -223,7 +247,7 @@ class _LoginPageState extends State<LoginPage> {
                           Get.toNamed(RouteHelper.calendar);
                         },
                         child: Container(
-                          height: Dimensions.height60,
+                          height: Dimensions.height45,
                           width: Dimensions.width180,
                           decoration: BoxDecoration(
                               color: AppColors.bgColor,
@@ -248,7 +272,7 @@ class _LoginPageState extends State<LoginPage> {
                               Text(
                                 'calendar'.tr,
                                 style: TextStyle(
-                                    fontSize: Dimensions.font20,
+                                    fontSize: Dimensions.font16,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               )
@@ -261,7 +285,7 @@ class _LoginPageState extends State<LoginPage> {
                           Get.toNamed(RouteHelper.getService());
                         },
                         child: Container(
-                          height: Dimensions.height60,
+                          height: Dimensions.height45,
                           width: Dimensions.width180,
                           decoration: BoxDecoration(
                               color: AppColors.bgColor,
@@ -288,7 +312,7 @@ class _LoginPageState extends State<LoginPage> {
                               Text(
                                 'ບໍລິການອື່ນໆ',
                                 style: TextStyle(
-                                    fontSize: Dimensions.font20,
+                                    fontSize: Dimensions.font16,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               )
@@ -372,7 +396,7 @@ class AppTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Dimensions.height60,
+      height: Dimensions.height55,
       width: Dimensions.width360,
       decoration: BoxDecoration(
         boxShadow: [

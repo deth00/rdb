@@ -57,10 +57,12 @@ class _FeesPageState extends State<FeesPage> {
               ),
             ),
             SizedBox(height: Dimensions.height20),
-            ServiceButtom(
-                title: 'ການບໍລິການດ້ານສິນເຊື່ອ',
-                text: 'ລາຍລະອຽດຄ່າບໍລິການດ້ານສິນເຊື່ອປະເພດຕ່າງໆ',
-                image: AppImage.fees)
+            const Expanded(
+              child: ServiceButtom(
+                  title: 'ການບໍລິການດ້ານສິນເຊື່ອ',
+                  text: 'ລາຍລະອຽດຄ່າບໍລິການດ້ານສິນເຊື່ອປະເພດຕ່າງໆ',
+                  image: AppImage.fees),
+            )
           ],
         ),
       ),

@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                   return Padding(
                     padding: EdgeInsets.all(Dimensions.height10),
                     child: Container(
-                      height: Dimensions.height180,
+                      height: Dimensions.height120,
                       width: double.infinity,
                       child: CarouselSlider.builder(
                         itemCount: data.slider.length,
@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                             width: MediaQuery.of(context).size.width,
                             margin: const EdgeInsets.symmetric(horizontal: 3.0),
                             decoration: BoxDecoration(
-                                color: Colors.amber,
+                                color: Colors.white,
                                 borderRadius:
                                     BorderRadius.circular(Dimensions.radius15),
                                 image: DecorationImage(
@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   );
                 } else {
-                  return Text('null');
+                  return const Text('null');
                 }
               },
             ),
@@ -110,10 +110,10 @@ class _HomePageState extends State<HomePage> {
                   // mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(right: Dimensions.width20),
+                      padding: EdgeInsets.only(right: Dimensions.width10),
                       child: Image.asset(
                         AppImage.photo,
-                        scale: MediaQuery.of(context).size.height / 980,
+                        scale: MediaQuery.of(context).size.height / 750,
                       ),
                     ),
                     Column(
@@ -133,6 +133,7 @@ class _HomePageState extends State<HomePage> {
                               fontSize: Dimensions.font16, color: Colors.grey),
                         ),
                         Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
                               '+85620 xxxx xxxx',
@@ -140,13 +141,13 @@ class _HomePageState extends State<HomePage> {
                                   fontSize: Dimensions.font16,
                                   color: Colors.grey),
                             ),
-                            SizedBox(width: Dimensions.width30),
+                            SizedBox(width: Dimensions.width45),
                             GestureDetector(
                               onTap: () {
                                 Get.toNamed(RouteHelper.getInfo());
                               },
                               child: Container(
-                                height: Dimensions.height45,
+                                height: Dimensions.height30,
                                 width: Dimensions.width100,
                                 decoration: BoxDecoration(
                                     color: AppColors.bgColor,
@@ -177,22 +178,23 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                Get.toNamed(RouteHelper.getNavbar());
-              },
-              child: Container(
-                height: Dimensions.height180,
-                width: double.infinity,
-                // color: Colors.amber,
+            Container(
+              height: Dimensions.height180,
+              width: double.infinity,
+              // color: Colors.amber,
+              child: GestureDetector(
+                onTap: () {
+                  Get.toNamed(RouteHelper.getNavbar());
+                },
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
                       padding: EdgeInsets.only(
                           left: Dimensions.width10, right: Dimensions.width10),
                       child: Image.asset(
                         AppImage.mF,
-                        scale: MediaQuery.of(context).size.height / 980,
+                        scale: MediaQuery.of(context).size.height / 750,
                       ),
                     ),
                     Padding(
@@ -220,14 +222,17 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                    Image.asset(
-                      AppImage.qr,
-                      scale: MediaQuery.of(context).size.height / 1000,
+                    Padding(
+                      padding: EdgeInsets.only(right: Dimensions.width10),
+                      child: Image.asset(
+                        AppImage.qr,
+                        scale: MediaQuery.of(context).size.height / 750,
+                      ),
                     )
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
