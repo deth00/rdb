@@ -107,8 +107,8 @@ class _LoginPageState extends State<LoginPage> {
                             },
                             icon: Icon(
                               _isObscure
-                                  ? Icons.remove_red_eye_outlined
-                                  : Icons.redo_rounded,
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
                               color: Colors.grey,
                             )),
                       ),

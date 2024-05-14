@@ -179,7 +179,68 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              height: Dimensions.height180,
+              height: Dimensions.height120,
+              width: double.infinity,
+              // color: Colors.amber,
+              child: GestureDetector(
+                onTap: () {
+                  Get.toNamed(RouteHelper.getNavbar());
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: Dimensions.width10, right: Dimensions.width10),
+                      child: Image.asset(
+                        AppImage.mF,
+                        scale: MediaQuery.of(context).size.height / 750,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: Dimensions.width10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'ບັນຊີເງິນຝາກ',
+                            style: TextStyle(fontSize: Dimensions.font20),
+                          ),
+                          Text(
+                            '0201 111 xxxxxxxxxx 63',
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: Dimensions.font16),
+                          ),
+                          Text(
+                            'Phongsavanh BPC',
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: Dimensions.font16),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: Dimensions.width10),
+                      child: Image.asset(
+                        AppImage.qr,
+                        scale: MediaQuery.of(context).size.height / 750,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: Dimensions.width10),
+              child: const Divider(
+                color: Colors.grey,
+              ),
+            ),
+            Container(
+              height: Dimensions.height120,
               width: double.infinity,
               // color: Colors.amber,
               child: GestureDetector(

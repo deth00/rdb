@@ -32,7 +32,7 @@ class _ServicePageState extends State<ServicePage> {
                     },
                     child: Padding(
                       padding: EdgeInsets.only(
-                          left: Dimensions.width15, right: Dimensions.width15),
+                          left: Dimensions.width10, right: Dimensions.width10),
                       child: Image.asset(
                         AppImage.back,
                         color: Colors.white,

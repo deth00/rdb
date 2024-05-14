@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
+import 'package:rdb_gro_app/controller/info_crd_controller.dart';
 import 'package:rdb_gro_app/route/route_helper.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
@@ -139,59 +141,81 @@ class _TransitionPageState extends State<TransitionPage> {
               ),
             ),
             Expanded(
-              child: ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: Dimensions.width10),
-                    child: Column(
-                      children: [
-                        Container(
-                          // padding: EdgeInsets.all(Dimensions.height10),
-                          height: Dimensions.height120,
-                          width: double.infinity,
-                          color: Colors.white,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Center(child: Image.asset(AppImage.profile)),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
+              child: GetBuilder<InfoCrdController>(
+                builder: (data) {
+                  return ListView.builder(
+                    itemCount: data.infoCrdList.first.dCrschdPr.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: Dimensions.width10),
+                        child: Column(
+                          children: [
+                            Container(
+                              height: Dimensions.height120,
+                              width: double.infinity,
+                              color: Colors.white,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+                                  Center(
+                                      child: Image.asset(
+                                    AppImage.profile,
+                                    scale: 1.3,
+                                  )),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'ຊຳລະຕົ້ນທຶນ',
+                                        style: TextStyle(
+                                            fontSize: Dimensions.font16,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      // Text(data.infoCrdList[index].firstnamela),
+                                      Text(
+                                          'ບັນຊີ: ${data.infoCrdList[index].defacno}'),
+                                      Text('ລາຍລະອຽດ:'),
+                                      Text(data.infoCrdList[index]
+                                          .dCrschdPr[index].duedt),
+                                    ],
+                                  ),
+                                  // SizedBox(
+                                  //   width: Dimensions.width10,
+                                  // ),
                                   Text(
-                                    'ໂອນເງິນອອກ',
+                                    NumberFormat.currency(
+                                      locale: 'lo-LO',
+                                      symbol: '',
+                                    ).format(int.parse(data.infoCrdList[index]
+                                        .dCrschdPr[index].amt)),
                                     style: TextStyle(
                                         fontSize: Dimensions.font16,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Text('ເລກທີອ້າງອີງ:'),
-                                  Text('ຫາບັນຊີ:'),
-                                  Text('ລາຍລະອຽດ:'),
-                                  Text('10/20/2024 09:00:00'),
+                                        color: Colors.red),
+                                  )
+                                  // Text(
+                                  //   data.infoCrdList[index].dCrschdPr[index]
+                                  //       .amt,
+                                  //   style: TextStyle(
+                                  //       fontSize: Dimensions.font16,
+                                  //       color: Colors.red),
+                                  // )
                                 ],
                               ),
-                              SizedBox(
-                                width: Dimensions.width10,
-                              ),
-                              Text(
-                                '10.000.000.00',
-                                style: TextStyle(
-                                    fontSize: Dimensions.font16,
-                                    color: Colors.red),
-                              )
-                            ],
-                          ),
+                            ),
+                            const Divider(color: Colors.grey),
+                          ],
                         ),
-                        const Divider(color: Colors.grey),
-                      ],
-                    ),
+                      );
+                    },
                   );
                 },
               ),
-            )
+            ),
           ],
         ),
       ),
