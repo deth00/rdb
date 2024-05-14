@@ -21,7 +21,7 @@ class _DashboradPageState extends State<DashboradPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: Dimensions.height60,
+            height: Dimensions.height55,
             width: double.infinity,
             color: AppColors.bgColor,
             child: Row(
@@ -52,7 +52,10 @@ class _DashboradPageState extends State<DashboradPage> {
                       top: Dimensions.height10, right: Dimensions.height10),
                   child: Column(
                     children: [
-                      Image.asset(AppImage.logout),
+                      Image.asset(
+                        AppImage.logout,
+                        scale: 1.3,
+                      ),
                       Text('ອອກລະບົບ',
                           style: TextStyle(
                               fontSize: Dimensions.font12,

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rdb_gro_app/controller/info_crd_controller.dart';
 import 'package:rdb_gro_app/controller/news_controller.dart';
 import 'package:rdb_gro_app/controller/slider_controller.dart';
 import 'package:rdb_gro_app/generated/locales.g.dart';
@@ -24,18 +25,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<SliderController>(builder: (_) {
       return GetBuilder<NewsController>(builder: (_) {
-        return GetMaterialApp(
-          title: 'Flutter Demo',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
-          translationsKeys: AppTranslation.translations,
-          locale: const Locale('lo', 'LO'),
-          initialRoute: RouteHelper.splashPage,
-          getPages: RouteHelper.routes,
-        );
+        return GetBuilder<InfoCrdController>(builder: (_) {
+          return GetMaterialApp(
+            title: 'Flutter Demo',
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              useMaterial3: true,
+            ),
+            translationsKeys: AppTranslation.translations,
+            locale: const Locale('lo', 'LO'),
+            initialRoute: RouteHelper.splashPage,
+            getPages: RouteHelper.routes,
+          );
+        });
       });
     });
   }

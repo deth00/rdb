@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
+import 'package:rdb_gro_app/utils/dimensions.dart';
 import 'package:rdb_gro_app/widgets/service_buttom.dart';
 
 class SettingPage extends StatefulWidget {
@@ -19,7 +20,7 @@ class _SettingPageState extends State<SettingPage> {
         child: Column(
           children: [
             Container(
-              height: 55,
+              height: Dimensions.height55,
               width: double.infinity,
               decoration: BoxDecoration(color: AppColors.bgColor),
               child: Row(
@@ -29,7 +30,7 @@ class _SettingPageState extends State<SettingPage> {
                       Get.back();
                     },
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      padding: const EdgeInsets.only(left: 10, right: 10),
                       child: Image.asset(
                         AppImage.back,
                         color: Colors.white,
