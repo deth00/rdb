@@ -140,80 +140,277 @@ class _TransitionPageState extends State<TransitionPage> {
                 ),
               ),
             ),
+            // Expanded(
+            //   child: GetBuilder<InfoCrdController>(
+            //     builder: (data) {
+            //       return ListView.builder(
+            //         physics: NeverScrollableScrollPhysics(),
+            //         shrinkWrap: true,
+            //         itemCount: data.infoCrdList.first.dCrschdPr.length,
+            //         itemBuilder: (context, index) {
+            //           return Padding(
+            //             padding: EdgeInsets.symmetric(
+            //                 horizontal: Dimensions.width10),
+            //             child: Column(
+            //               children: [
+            //                 Container(
+            //                   height: Dimensions.height120,
+            //                   width: double.infinity,
+            //                   color: Colors.white,
+            //                   child: Row(
+            //                     mainAxisAlignment:
+            //                         MainAxisAlignment.spaceBetween,
+            //                     crossAxisAlignment: CrossAxisAlignment.start,
+            //                     children: [
+            //                       Center(
+            //                           child: Image.asset(
+            //                         AppImage.profile,
+            //                         scale: 1.3,
+            //                       )),
+            //                       Column(
+            //                         mainAxisAlignment: MainAxisAlignment.center,
+            //                         crossAxisAlignment:
+            //                             CrossAxisAlignment.start,
+            //                         children: [
+            //                           Text(
+            //                             'ຊຳລະຕົ້ນທຶນ',
+            //                             style: TextStyle(
+            //                                 fontSize: Dimensions.font16,
+            //                                 fontWeight: FontWeight.bold),
+            //                           ),
+            //                           Text(data.infoCrdList[index].firstnamela),
+            //                           Text(
+            //                               'ບັນຊີ: ${data.infoCrdList[index].defacno}'),
+            //                           Text('ລາຍລະອຽດ:'),
+            //                           Text(data.infoCrdList[index]
+            //                               .dCrschdPr[index].duedt),
+            //                         ],
+            //                       ),
+            //                       // SizedBox(
+            //                       //   width: Dimensions.width10,
+            //                       // ),
+            //                       Text(
+            //                         NumberFormat.currency(
+            //                           locale: 'lo-LO',
+            //                           symbol: '',
+            //                         ).format(int.parse(data.infoCrdList[index]
+            //                             .dCrschdPr[index].amt)),
+            //                         style: TextStyle(
+            //                             fontSize: Dimensions.font16,
+            //                             color: Colors.red),
+            //                       )
+            //                       // Text(
+            //                       //   data.infoCrdList[index].dCrschdPr[index]
+            //                       //       .amt,
+            //                       //   style: TextStyle(
+            //                       //       fontSize: Dimensions.font16,
+            //                       //       color: Colors.red),
+            //                       // )
+            //                     ],
+            //                   ),
+            //                 ),
+            //                 const Divider(color: Colors.grey),
+            //               ],
+            //             ),
+            //           );
+            //         },
+            //       );
+            //     },
+            //   ),
+            // ),
             Expanded(
-              child: GetBuilder<InfoCrdController>(
-                builder: (data) {
-                  return ListView.builder(
-                    itemCount: data.infoCrdList.first.dCrschdPr.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: Dimensions.width10),
-                        child: Column(
-                          children: [
-                            Container(
-                              height: Dimensions.height120,
-                              width: double.infinity,
-                              color: Colors.white,
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.start,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    GetBuilder<InfoCrdController>(
+                      builder: (data) {
+                        return ListView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: data.historyList.length,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: Dimensions.width10),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Center(
-                                      child: Image.asset(
-                                    AppImage.profile,
-                                    scale: 1.3,
-                                  )),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'ຊຳລະຕົ້ນທຶນ',
-                                        style: TextStyle(
-                                            fontSize: Dimensions.font16,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      // Text(data.infoCrdList[index].firstnamela),
-                                      Text(
-                                          'ບັນຊີ: ${data.infoCrdList[index].defacno}'),
-                                      Text('ລາຍລະອຽດ:'),
-                                      Text(data.infoCrdList[index]
-                                          .dCrschdPr[index].duedt),
-                                    ],
+                                  Container(
+                                    height: Dimensions.height120,
+                                    width: double.infinity,
+                                    color: Colors.white,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Center(
+                                            child: Image.asset(
+                                          AppImage.profile,
+                                          scale: 1.3,
+                                        )),
+                                        Container(
+                                          height: double.infinity,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              1.3,
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text(
+                                                    'ຊຳລະຕົ້ນທຶນ',
+                                                    style: TextStyle(
+                                                        fontSize:
+                                                            Dimensions.font16,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  Text(
+                                                    NumberFormat.currency(
+                                                      locale: 'lo-LO',
+                                                      symbol: '',
+                                                    ).format(data
+                                                        .historyList[index]
+                                                        .amt),
+                                                    style: TextStyle(
+                                                        fontSize:
+                                                            Dimensions.font16,
+                                                        color: Colors.red),
+                                                  )
+                                                ],
+                                              ),
+                                              Text(data.infoaccList[0].acname),
+                                              Text(
+                                                  'ບັນຊີ: ${data.infoaccList[0].acno}'),
+                                              Text(
+                                                'ລາຍລະອຽດ: ${data.historyList[index].descr}',
+                                                overflow: TextOverflow.ellipsis,
+                                                maxLines: 1,
+                                              ),
+                                              Text(DateFormat(
+                                                      'yyyy-MM-dd – kk:mm')
+                                                  .format(data
+                                                      .historyList[index]
+                                                      .valuedt)),
+                                            ],
+                                          ),
+                                        ),
+                                        // SizedBox(
+                                        //   width: Dimensions.width10,
+                                        // ),
+
+                                        // Text(
+                                        //   data.infoCrdList[index].dCrschdPr[index]
+                                        //       .amt,
+                                        //   style: TextStyle(
+                                        //       fontSize: Dimensions.font16,
+                                        //       color: Colors.red),
+                                        // )
+                                      ],
+                                    ),
                                   ),
-                                  // SizedBox(
-                                  //   width: Dimensions.width10,
-                                  // ),
-                                  Text(
-                                    NumberFormat.currency(
-                                      locale: 'lo-LO',
-                                      symbol: '',
-                                    ).format(int.parse(data.infoCrdList[index]
-                                        .dCrschdPr[index].amt)),
-                                    style: TextStyle(
-                                        fontSize: Dimensions.font16,
-                                        color: Colors.red),
-                                  )
-                                  // Text(
-                                  //   data.infoCrdList[index].dCrschdPr[index]
-                                  //       .amt,
-                                  //   style: TextStyle(
-                                  //       fontSize: Dimensions.font16,
-                                  //       color: Colors.red),
-                                  // )
+                                  const Divider(color: Colors.grey),
                                 ],
                               ),
-                            ),
-                            const Divider(color: Colors.grey),
-                          ],
-                        ),
-                      );
-                    },
-                  );
-                },
+                            );
+                          },
+                        );
+                      },
+                    ),
+                    // GetBuilder<InfoCrdController>(
+                    //   builder: (data) {
+                    //     return ListView.builder(
+                    //       physics: NeverScrollableScrollPhysics(),
+                    //       shrinkWrap: true,
+                    //       itemCount: data.infoCrdList.first.dCrschdInt.length,
+                    //       itemBuilder: (context, index) {
+                    //         return Padding(
+                    //           padding: EdgeInsets.symmetric(
+                    //               horizontal: Dimensions.width10),
+                    //           child: Column(
+                    //             children: [
+                    //               Container(
+                    //                 height: Dimensions.height120,
+                    //                 width: double.infinity,
+                    //                 color: Colors.white,
+                    //                 child: Row(
+                    //                   mainAxisAlignment:
+                    //                       MainAxisAlignment.spaceBetween,
+                    //                   crossAxisAlignment:
+                    //                       CrossAxisAlignment.start,
+                    //                   children: [
+                    //                     Center(
+                    //                         child: Image.asset(
+                    //                       AppImage.profile,
+                    //                       scale: 1.3,
+                    //                     )),
+                    //                     Column(
+                    //                       mainAxisAlignment:
+                    //                           MainAxisAlignment.center,
+                    //                       crossAxisAlignment:
+                    //                           CrossAxisAlignment.start,
+                    //                       children: [
+                    //                         Text(
+                    //                           'ຊຳດອກເບ້ຍ',
+                    //                           style: TextStyle(
+                    //                               fontSize: Dimensions.font16,
+                    //                               fontWeight: FontWeight.bold),
+                    //                         ),
+                    //                         Text(data.infoCrdList[index]
+                    //                             .firstnamela),
+                    //                         Text(
+                    //                             'ບັນຊີ: ${data.infoCrdList[index].defacno}'),
+                    //                         Text('ລາຍລະອຽດ:'),
+                    //                         Text(data.infoCrdList[index]
+                    //                             .dCrschdInt[index].duedt),
+                    //                       ],
+                    //                     ),
+                    //                     // SizedBox(
+                    //                     //   width: Dimensions.width10,
+                    //                     // ),
+                    //                     Text(
+                    //                       NumberFormat.currency(
+                    //                         locale: 'lo-LO',
+                    //                         symbol: '',
+                    //                       ).format(int.parse(data
+                    //                           .infoCrdList[index]
+                    //                           .dCrschdPr[index]
+                    //                           .amt)),
+                    //                       style: TextStyle(
+                    //                           fontSize: Dimensions.font16,
+                    //                           color: Colors.red),
+                    //                     )
+                    //                     // Text(
+                    //                     //   data.infoCrdList[index].dCrschdPr[index]
+                    //                     //       .amt,
+                    //                     //   style: TextStyle(
+                    //                     //       fontSize: Dimensions.font16,
+                    //                     //       color: Colors.red),
+                    //                     // )
+                    //                   ],
+                    //                 ),
+                    //               ),
+                    //               const Divider(color: Colors.grey),
+                    //             ],
+                    //           ),
+                    //         );
+                    //       },
+                    //     );
+                    //   },
+                    // ),
+                  ],
+                ),
               ),
             ),
           ],

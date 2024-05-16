@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'dart:convert';
+// import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,7 +10,7 @@ import 'package:rdb_gro_app/route/route_helper.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
 import 'package:rdb_gro_app/utils/dimensions.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -27,7 +27,9 @@ class _SplashScreenState extends State<SplashScreen>
   Future<void> _loadResources() async {
     await Get.find<SliderController>().getSlider();
     await Get.find<NewsController>().getNews();
-    await Get.find<InfoCrdController>().infoCrd();
+    await Get.find<InfoCrdController>().info();
+    await Get.find<InfoCrdController>().infoacc();
+    await Get.find<InfoCrdController>().history();
   }
 
   @override

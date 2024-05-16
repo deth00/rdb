@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rdb_gro_app/controller/info_crd_controller.dart';
 import 'package:rdb_gro_app/controller/slider_controller.dart';
 import 'package:rdb_gro_app/route/route_helper.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
@@ -22,7 +23,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             Container(
-              height: Dimensions.height60,
+              height: Dimensions.height55,
               width: double.infinity,
               color: AppColors.bgColor,
               child: Row(
@@ -32,10 +33,13 @@ class _HomePageState extends State<HomePage> {
                     onTap: () {
                       Get.back();
                     },
-                    child: Icon(
-                      Icons.arrow_left_rounded,
-                      size: Dimensions.iconSize60,
-                      color: Colors.white,
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          left: Dimensions.width10, right: Dimensions.width10),
+                      child: Image.asset(
+                        AppImage.back,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                   Text(
@@ -99,92 +103,96 @@ class _HomePageState extends State<HomePage> {
                 }
               },
             ),
-            Container(
-              height: Dimensions.height120,
-              width: double.infinity,
-              color: AppColors.bgColor2,
-              child: Padding(
-                padding: EdgeInsets.only(
-                    left: Dimensions.width10, right: Dimensions.width10),
-                child: Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(right: Dimensions.width10),
-                      child: Image.asset(
-                        AppImage.photo,
-                        scale: MediaQuery.of(context).size.height / 750,
+            GetBuilder<InfoCrdController>(builder: (data) {
+              return Container(
+                height: Dimensions.height120,
+                width: double.infinity,
+                color: AppColors.bgColor2,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                      left: Dimensions.width10, right: Dimensions.width10),
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(right: Dimensions.width10),
+                        child: Image.asset(
+                          AppImage.photo,
+                          scale: MediaQuery.of(context).size.height / 750,
+                        ),
                       ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Phongsavanh Boubphachanh',
-                          style: TextStyle(
-                              fontSize: Dimensions.font16,
-                              fontWeight: FontWeight.w500),
-                        ),
-                        SizedBox(height: Dimensions.height10),
-                        Text(
-                          'ພົງສະຫວັນ ບຸບຜາຈັນ',
-                          style: TextStyle(
-                              fontSize: Dimensions.font16, color: Colors.grey),
-                        ),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              '+85620 xxxx xxxx',
-                              style: TextStyle(
-                                  fontSize: Dimensions.font16,
-                                  color: Colors.grey),
-                            ),
-                            SizedBox(width: Dimensions.width45),
-                            GestureDetector(
-                              onTap: () {
-                                Get.toNamed(RouteHelper.getInfo());
-                              },
-                              child: Container(
-                                height: Dimensions.height30,
-                                width: Dimensions.width100,
-                                decoration: BoxDecoration(
-                                    color: AppColors.bgColor,
-                                    borderRadius: BorderRadius.circular(
-                                        Dimensions.radius20),
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: Colors.grey.shade400,
-                                          offset: const Offset(1, 2),
-                                          blurRadius: 3)
-                                    ]),
-                                child: Center(
-                                  child: Text(
-                                    'ເບິ່ງຂໍ້ມູນ',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: Dimensions.font16),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            data.infoList[0].shortname,
+                            style: TextStyle(
+                                fontSize: Dimensions.font16,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          SizedBox(height: Dimensions.height10),
+                          Text(
+                            data.infoList[0].fullname,
+                            style: TextStyle(
+                                fontSize: Dimensions.font16,
+                                color: Colors.grey),
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                data.infoList[0].mphone.hp,
+                                style: TextStyle(
+                                    fontSize: Dimensions.font16,
+                                    color: Colors.grey),
+                              ),
+                              SizedBox(width: Dimensions.width45),
+                              GestureDetector(
+                                onTap: () {
+                                  Get.toNamed(RouteHelper.getInfo());
+                                },
+                                child: Container(
+                                  height: Dimensions.height30,
+                                  width: Dimensions.width100,
+                                  decoration: BoxDecoration(
+                                      color: AppColors.bgColor,
+                                      borderRadius: BorderRadius.circular(
+                                          Dimensions.radius20),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Colors.grey.shade400,
+                                            offset: const Offset(1, 2),
+                                            blurRadius: 3)
+                                      ]),
+                                  child: Center(
+                                    child: Text(
+                                      'ເບິ່ງຂໍ້ມູນ',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: Dimensions.font16),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ),
+              );
+            }),
             Container(
               height: Dimensions.height120,
               width: double.infinity,
               // color: Colors.amber,
               child: GestureDetector(
                 onTap: () {
-                  Get.toNamed(RouteHelper.getNavbar());
+                  // Get.toNamed(RouteHelper.getNavbar());
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
