@@ -8,8 +8,10 @@ class AppConstants {
   static const String SLIDE_URL = "api/slide";
   static const String NEWS_URL = "api/getpost";
 
-  static const String BASE_CRD_URL = "http://192.168.10.55:6601/nbb/";
-  static const String INFO_CRE_URL = 'api/crd/get-schedule';
+  static const String BASE_CRD_URL = "http://192.168.10.55:6604/nbb/";
+  static const String INFO_CRE_URL = 'api/ctm/get/info';
+  static const String INFO_CRE_ACC_URL = 'api/ctm/get/credit';
+  static const String HISTORY_URL = 'api/crd/get_history/info';
 
   static const String TOKEN = "";
   static const String TOKEN_CRD =

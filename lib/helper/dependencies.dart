@@ -14,13 +14,9 @@ Future<void> init() async {
   final sharedPreferences = await SharedPreferences.getInstance();
   Get.lazyPut(() => sharedPreferences);
   Get.lazyPut(() => ApiClient(
-        appBaseUrl: AppConstants.BASE_WEB_URL,
-        sharedPreferences: Get.find(),
-      ));
+      appBaseUrl: AppConstants.BASE_WEB_URL, sharedPreferences: Get.find()));
   Get.lazyPut(() => ApiClientCrd(
-        appBaseUrl: AppConstants.BASE_CRD_URL,
-        sharedPreferences: Get.find(),
-      ));
+      appBaseUrl: AppConstants.BASE_CRD_URL, sharedPreferences: Get.find()));
 
   //repo
   Get.lazyPut(() => SliderRepo(apiClient: Get.find()));

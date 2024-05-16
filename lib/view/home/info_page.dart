@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rdb_gro_app/controller/info_crd_controller.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
 import 'package:rdb_gro_app/utils/dimensions.dart';
@@ -77,125 +78,131 @@ class _InfoPageState extends State<InfoPage> {
                 ),
               ),
             ),
-            Container(
-              height: Dimensions.height100,
-              width: double.infinity,
-              // color: AppColors.mainColor,
-              child: Row(
+            GetBuilder<InfoCrdController>(builder: (data) {
+              return Column(
                 children: [
+                  Container(
+                    height: Dimensions.height100,
+                    width: double.infinity,
+                    // color: AppColors.mainColor,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              vertical: Dimensions.width10,
+                              horizontal: Dimensions.height10),
+                          child: Image.asset(AppImage.profile),
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('ຊື່ບັນຊີ: ${data.infoList[0].shortname}'),
+                            // SizedBox(height: Dimensions.height10),
+                            Row(
+                              children: [
+                                Text('ເລກບັນຊີ: ${data.infoaccList[0].acno}'),
+                                SizedBox(width: Dimensions.width45),
+                                Image.asset(AppImage.show),
+                              ],
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                        left: Dimensions.width10, right: Dimensions.width10),
+                    child: const Divider(
+                      color: Colors.grey,
+                    ),
+                  ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                        vertical: Dimensions.width10,
-                        horizontal: Dimensions.height10),
-                    child: Image.asset(AppImage.profile),
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('ຊື່ບັນຊີ: PHONGSAVANH BOUBPHACHANH MR'),
-                      // SizedBox(height: Dimensions.height10),
-                      Row(
-                        children: [
-                          const Text('ເລກບັນຊີ: 0201 11XXXXXXXXXXX'),
-                          SizedBox(width: Dimensions.width45),
-                          Image.asset(AppImage.show),
-                        ],
-                      ),
-                    ],
+                        vertical: Dimensions.width20,
+                        horizontal: Dimensions.height20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              'ປະເພດ: ',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: Dimensions.font16),
+                            ),
+                            Text(
+                              'ເລກທີ່ສັນຍາ: ',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: Dimensions.font16),
+                            ),
+                            Text(
+                              'ໄລຍະກູ້ຢືມ: ',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: Dimensions.font16),
+                            ),
+                            Text(
+                              'ຍອດໜີ້: ',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: Dimensions.font16),
+                            ),
+                            Text(
+                              'ອັດຕາດອກເບ້ຍ: ',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: Dimensions.font16),
+                            ),
+                            Text(
+                              'ຊັ້ນໜີ້: ',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: Dimensions.font16),
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: Dimensions.width10),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'ປະເພດ: ',
+                              style: TextStyle(fontSize: Dimensions.font16),
+                            ),
+                            Text(
+                              'ເລກທີ່ສັນຍາ: ',
+                              style: TextStyle(fontSize: Dimensions.font16),
+                            ),
+                            Text(
+                              'ໄລຍະກູ້ຢືມ: ',
+                              style: TextStyle(fontSize: Dimensions.font16),
+                            ),
+                            Text(
+                              '${data.infoaccList[0].balance} ',
+                              style: TextStyle(fontSize: Dimensions.font16),
+                            ),
+                            Text(
+                              '${data.infoaccList[0].intpaid}',
+                              style: TextStyle(fontSize: Dimensions.font16),
+                            ),
+                            Text(
+                              'ຊັ້ນໜີ້: ',
+                              style: TextStyle(fontSize: Dimensions.font16),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   )
                 ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                  left: Dimensions.width10, right: Dimensions.width10),
-              child: const Divider(
-                color: Colors.grey,
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  vertical: Dimensions.width20,
-                  horizontal: Dimensions.height20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(
-                        'ປະເພດ: ',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: Dimensions.font16),
-                      ),
-                      Text(
-                        'ເລກທີ່ສັນຍາ: ',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: Dimensions.font16),
-                      ),
-                      Text(
-                        'ໄລຍະກູ້ຢືມ: ',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: Dimensions.font16),
-                      ),
-                      Text(
-                        'ຍອດໜີ້: ',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: Dimensions.font16),
-                      ),
-                      Text(
-                        'ອັດຕາດອກເບ້ຍ: ',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: Dimensions.font16),
-                      ),
-                      Text(
-                        'ຊັ້ນໜີ້: ',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: Dimensions.font16),
-                      ),
-                    ],
-                  ),
-                  SizedBox(width: Dimensions.width10),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'ປະເພດ: ',
-                        style: TextStyle(fontSize: Dimensions.font16),
-                      ),
-                      Text(
-                        'ເລກທີ່ສັນຍາ: ',
-                        style: TextStyle(fontSize: Dimensions.font16),
-                      ),
-                      Text(
-                        'ໄລຍະກູ້ຢືມ: ',
-                        style: TextStyle(fontSize: Dimensions.font16),
-                      ),
-                      Text(
-                        '200.000.000 kip ',
-                        style: TextStyle(fontSize: Dimensions.font16),
-                      ),
-                      Text(
-                        '200.000 kip ',
-                        style: TextStyle(fontSize: Dimensions.font16),
-                      ),
-                      Text(
-                        'ຊັ້ນໜີ້: ',
-                        style: TextStyle(fontSize: Dimensions.font16),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            )
+              );
+            }),
           ],
         ),
       ),
