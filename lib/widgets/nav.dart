@@ -2,39 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/dimensions.dart';
 import 'package:rdb_gro_app/view/home/dashborad_page.dart';
-// import 'package:rdb_gro_app/view/home/dashborad_page.dart';
-import 'package:rdb_gro_app/view/home/home_page.dart';
 import 'package:rdb_gro_app/view/home/transition_page.dart';
 import 'package:rdb_gro_app/view/service/service_page.dart';
 import 'package:rdb_gro_app/view/setting/setting_page.dart';
 
-class NavBar extends StatefulWidget {
-  const NavBar({super.key});
+class NavSecond extends StatefulWidget {
+  const NavSecond({super.key});
 
   @override
-  State<NavBar> createState() => _NavBarState();
+  State<NavSecond> createState() => _NavSecondState();
 }
 
-class _NavBarState extends State<NavBar> {
+class _NavSecondState extends State<NavSecond> {
   int _sectectIndex = 0;
-
   _widgetOptions(int index) {
     return IndexedStack(
       index: index,
       children: const [
-        HomePage(),
+        DashboradPage(),
         TransitionPage(),
         SettingPage(),
         ServicePage(),
       ],
     );
   }
-
-  // void _onItemTapped(int index) {
-  //   setState(() {
-  //     _sectectIndex = index;
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
