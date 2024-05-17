@@ -10,6 +10,7 @@ import 'package:rdb_gro_app/view/service/local/local_service_page.dart';
 import 'package:rdb_gro_app/view/service/news_page.dart';
 import 'package:rdb_gro_app/view/service/service_page.dart';
 import 'package:rdb_gro_app/view/splash_screen.dart';
+import 'package:rdb_gro_app/widgets/nav.dart';
 import 'package:rdb_gro_app/widgets/navbar.dart';
 
 class RouteHelper {
@@ -53,6 +54,9 @@ class RouteHelper {
   static const String navbar = '/navbar';
   static String getNavbar() => navbar;
 
+  static const String nav = '/nav';
+  static String getNav() => nav;
+
   static List<GetPage> routes = [
     GetPage(name: splashPage, page: () => const SplashScreen()),
     GetPage(
@@ -62,6 +66,10 @@ class RouteHelper {
     GetPage(
         name: navbar,
         page: () => const NavBar(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: nav,
+        page: () => const NavSecond(),
         transition: Transition.fadeIn),
     GetPage(
         name: calendar,

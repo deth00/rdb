@@ -118,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Get.toNamed(RouteHelper.getHome());
+                        Get.toNamed(RouteHelper.getNavbar());
                       },
                       child: Container(
                         height: Dimensions.height55,
