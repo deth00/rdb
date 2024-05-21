@@ -7,12 +7,17 @@ class NewsController extends GetxController {
   NewsController({required this.newsRepo});
   List<NewsData> _newData = [];
   List<NewsData> get newsData => _newData;
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
   Future<void> getNews() async {
     Response response = await newsRepo.getNews();
     if (response.statusCode == 200) {
       _newData = [];
       _newData.addAll(NewsModel.fromJson(response.body).data);
+      _isLoading = true;
       update();
-    } else {}
+    } else {
+      _isLoading = false;
+    }
   }
 }

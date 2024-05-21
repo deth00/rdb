@@ -74,7 +74,7 @@ class InfoCrdController extends GetxController {
           "auth_name": "nbb",
           "acno": "050801001411945",
           "fromDate": "04-10-2022",
-          "toDate": "05-10-2023"
+          "toDate": "01-12-2030"
         }));
 
     if (response.statusCode == 200) {
@@ -83,7 +83,7 @@ class InfoCrdController extends GetxController {
       for (var data in result) {
         _histoyrList.add(HistoryModel.fromJson(data));
       }
-      print(result.toString());
+      update();
     } else {
       print("Failed to create post!");
     }

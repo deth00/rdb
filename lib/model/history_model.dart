@@ -14,7 +14,7 @@ class HistoryModel {
   String txrefid;
   DateTime valuedt;
   String txcode;
-  int amt;
+  double amt;
   String descr;
   String status;
   String usrname;
@@ -35,7 +35,7 @@ class HistoryModel {
         txrefid: json["txrefid"],
         valuedt: DateTime.parse(json["valuedt"]),
         txcode: json["txcode"],
-        amt: json["amt"],
+        amt: json["amt"]?.toDouble(),
         descr: json["descr"],
         status: json["status"],
         usrname: json["usrname"],
