@@ -18,28 +18,39 @@ class NavBar extends StatefulWidget {
 class _NavBarState extends State<NavBar> {
   int _sectectIndex = 0;
 
-  _widgetOptions(int index) {
-    return IndexedStack(
-      index: index,
-      children: const [
-        HomePage(),
-        TransitionPage(),
-        SettingPage(),
-        ServicePage(),
-      ],
-    );
-  }
+  // _widgetOptions(int index) {
+  //   return IndexedStack(
+  //     index: index,
+  //     children: const [
+  //       HomePage(),
+  //       TransitionPage(),
+  //       SettingPage(),
+  //       ServicePage(),
+  //     ],
+  //   );
+  // }
 
   // void _onItemTapped(int index) {
   //   setState(() {
   //     _sectectIndex = index;
   //   });
   // }
+  List page = [
+    const HomePage(),
+    const TransitionPage(),
+    const SettingPage(),
+    const ServicePage()
+  ];
+  void onTapNav(int index) {
+    setState(() {
+      _sectectIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _widgetOptions(_sectectIndex),
+      body: page[_sectectIndex],
       // bottomNavigationBar: BottomNavigationBar(
       //   type: BottomNavigationBarType.fixed,
       //   items: const [
@@ -86,6 +97,7 @@ class _NavBarState extends State<NavBar> {
     );
   }
 
+  // ignore: non_constant_identifier_names
   Widget NavigatorItem(
       {IconData? icons,
       required int index,

@@ -15,22 +15,34 @@ class NavSecond extends StatefulWidget {
 
 class _NavSecondState extends State<NavSecond> {
   int _sectectIndex = 0;
-  _widgetOptions(int index) {
-    return IndexedStack(
-      index: index,
-      children: const [
-        DashboradPage(),
-        TransitionPage(),
-        SettingPage(),
-        ServicePage(),
-      ],
-    );
+  // _widgetOptions(int index) {
+  //   return IndexedStack(
+  //     index: index,
+  //     children: const [
+  //       DashboradPage(),
+  //       TransitionPage(),
+  //       SettingPage(),
+  //       ServicePage(),
+  //     ],
+  //   );
+  // }
+
+  List page = [
+    const DashboradPage(),
+    const TransitionPage(),
+    const SettingPage(),
+    const ServicePage()
+  ];
+  void onTapNav(int index) {
+    setState(() {
+      _sectectIndex = index;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _widgetOptions(_sectectIndex),
+      body: page[_sectectIndex],
       // bottomNavigationBar: BottomNavigationBar(
       //   type: BottomNavigationBarType.fixed,
       //   items: const [

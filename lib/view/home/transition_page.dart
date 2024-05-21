@@ -225,6 +225,7 @@ class _TransitionPageState extends State<TransitionPage> {
                     GetBuilder<InfoCrdController>(
                       builder: (data) {
                         return ListView.builder(
+                          reverse: true,
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: data.historyList.length,
@@ -278,11 +279,14 @@ class _TransitionPageState extends State<TransitionPage> {
                                                   ),
                                                   Text(
                                                     NumberFormat.currency(
-                                                      locale: 'lo-LO',
-                                                      symbol: '',
-                                                    ).format(data
-                                                        .historyList[index]
-                                                        .amt),
+                                                            locale: 'lo',
+                                                            customPattern:
+                                                                '#,### \u00a4',
+                                                            symbol: 'ກີບ',
+                                                            decimalDigits: 2)
+                                                        .format(data
+                                                            .historyList[index]
+                                                            .amt),
                                                     style: TextStyle(
                                                         fontSize:
                                                             Dimensions.font16,

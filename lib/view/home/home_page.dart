@@ -8,6 +8,7 @@ import 'package:rdb_gro_app/route/route_helper.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
 import 'package:rdb_gro_app/utils/dimensions.dart';
+import 'package:rdb_gro_app/view/home/slider/slider_loading.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -74,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                   if (data.slider.isNotEmpty) {
                     return Padding(
                       padding: EdgeInsets.all(Dimensions.height10),
-                      child: Container(
+                      child: SizedBox(
                         height: Dimensions.height120,
                         width: double.infinity,
                         child: CarouselSlider.builder(
@@ -103,9 +104,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     );
                   } else {
-                    return CircularProgressIndicator(
-                      color: AppColors.mainColor,
-                    );
+                    return const SliderLoading();
                   }
                 },
               ),

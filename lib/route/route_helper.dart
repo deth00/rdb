@@ -7,7 +7,7 @@ import 'package:rdb_gro_app/view/auth/login/login_page.dart';
 import 'package:rdb_gro_app/view/home/home_page.dart';
 import 'package:rdb_gro_app/view/service/fees_page.dart';
 import 'package:rdb_gro_app/view/service/local/local_service_page.dart';
-import 'package:rdb_gro_app/view/service/news_page.dart';
+import 'package:rdb_gro_app/view/news/news_page.dart';
 import 'package:rdb_gro_app/view/service/service_page.dart';
 import 'package:rdb_gro_app/view/splash_screen.dart';
 import 'package:rdb_gro_app/widgets/nav.dart';
