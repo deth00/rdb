@@ -1,5 +1,5 @@
 // import 'dart:convert';
-import 'dart:developer';
+// import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
@@ -86,7 +86,7 @@ class ApiClientCrd extends GetConnect implements GetxService {
       }
     } else if (_response.hasError && _response.body == null) {
       print("The status code is " + _response.statusCode.toString());
-      _response = Response(
+      _response = const Response(
           statusCode: 0,
           statusText:
               'Connection to API server failed due to internet connection');

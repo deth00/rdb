@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/dimensions.dart';
-import 'package:rdb_gro_app/view/home/dashborad_page.dart';
+import 'package:rdb_gro_app/view/home/credit/transition_credit_page.dart';
+// import 'package:rdb_gro_app/view/home/dashborad_page.dart';
 // import 'package:rdb_gro_app/view/home/dashborad_page.dart';
 import 'package:rdb_gro_app/view/home/home_page.dart';
-import 'package:rdb_gro_app/view/home/transition_page.dart';
 import 'package:rdb_gro_app/view/service/service_page.dart';
 import 'package:rdb_gro_app/view/setting/setting_page.dart';
 
@@ -37,7 +37,7 @@ class _NavBarState extends State<NavBar> {
   // }
   List page = [
     const HomePage(),
-    const TransitionPage(),
+    const TransitionCreditPage(),
     const SettingPage(),
     const ServicePage()
   ];

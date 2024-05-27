@@ -5,14 +5,14 @@ import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
 import 'package:rdb_gro_app/utils/dimensions.dart';
 
-class DashboradPage extends StatefulWidget {
-  const DashboradPage({super.key});
+class DashboradCreditPage extends StatefulWidget {
+  const DashboradCreditPage({super.key});
 
   @override
-  State<DashboradPage> createState() => _DashboradPageState();
+  State<DashboradCreditPage> createState() => _DashboradCreditPageState();
 }
 
-class _DashboradPageState extends State<DashboradPage> {
+class _DashboradCreditPageState extends State<DashboradCreditPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +41,7 @@ class _DashboradPageState extends State<DashboradPage> {
                   ),
                 ),
                 Text(
-                  'ບັນຊີເງິນຝາກ',
+                  'ບັນຊີເງິນກູ້',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -131,7 +131,7 @@ class _DashboradPageState extends State<DashboradPage> {
               child: Container(
                 height: Dimensions.height120,
                 width: Dimensions.width120,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                 ),
                 child: Column(
