@@ -69,6 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                         ],
                       ),
                       child: AppTextField(
+                        textInputType: TextInputType.phone,
                         obs: false,
                         controller: phoneControl,
                         text: 'ເບີໂທ 020 xxxx xxxx',
@@ -92,6 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                         ],
                       ),
                       child: AppTextField(
+                        textInputType: TextInputType.multiline,
                         obs: _isObscure,
                         controller: pwControl,
                         text: 'ລະຫັດ: ********',
@@ -118,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Get.toNamed(RouteHelper.getNavbar());
+                        Get.offAllNamed(RouteHelper.getNavbar());
                       },
                       child: Container(
                         height: Dimensions.height55,
@@ -383,6 +385,7 @@ class AppTextField extends StatelessWidget {
   final Widget? icon1;
   final bool obs;
   final TextEditingController controller;
+  final TextInputType textInputType;
 
   const AppTextField({
     super.key,
@@ -391,6 +394,7 @@ class AppTextField extends StatelessWidget {
     this.icon1,
     required this.obs,
     required this.controller,
+    required this.textInputType,
   });
 
   @override
@@ -408,6 +412,7 @@ class AppTextField extends StatelessWidget {
         ],
       ),
       child: TextField(
+        keyboardType: textInputType,
         controller: controller,
         obscureText: obs,
         style: const TextStyle(color: Colors.grey),

@@ -1,8 +1,10 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/dimensions.dart';
-import 'package:rdb_gro_app/view/home/dashborad_page.dart';
-import 'package:rdb_gro_app/view/home/transition_page.dart';
+import 'package:rdb_gro_app/view/home/credit/dashborad_page.dart';
+import 'package:rdb_gro_app/view/home/credit/transition_credit_page.dart';
 import 'package:rdb_gro_app/view/service/service_page.dart';
 import 'package:rdb_gro_app/view/setting/setting_page.dart';
 
@@ -28,8 +30,8 @@ class _NavSecondState extends State<NavSecond> {
   // }
 
   List page = [
-    const DashboradPage(),
-    const TransitionPage(),
+    const DashboradCreditPage(),
+    const TransitionCreditPage(),
     const SettingPage(),
     const ServicePage()
   ];

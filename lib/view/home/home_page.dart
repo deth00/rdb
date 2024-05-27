@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rdb_gro_app/base/mydialog.dart';
+// import 'package:rdb_gro_app/base/mydialog.dart';
 import 'package:rdb_gro_app/controller/info_crd_controller.dart';
 import 'package:rdb_gro_app/controller/slider_controller.dart';
 import 'package:rdb_gro_app/route/route_helper.dart';
@@ -155,7 +155,7 @@ class _HomePageState extends State<HomePage> {
                                         fontSize: Dimensions.font16,
                                         color: Colors.grey),
                                   ),
-                                  SizedBox(width: Dimensions.width45),
+                                  SizedBox(width: Dimensions.width100),
                                   GestureDetector(
                                     onTap: () {
                                       Get.toNamed(RouteHelper.getInfo());

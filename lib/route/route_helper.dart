@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:rdb_gro_app/view/home/dashborad_page.dart';
-import 'package:rdb_gro_app/view/home/info_page.dart';
-import 'package:rdb_gro_app/view/home/transition_page.dart';
+import 'package:rdb_gro_app/view/home/credit/dashborad_page.dart';
+import 'package:rdb_gro_app/view/home/credit/transition_credit_page.dart';
+import 'package:rdb_gro_app/view/home/credit/info_credit_page.dart';
 import 'package:rdb_gro_app/view/service/calendar/calendar_page.dart';
 import 'package:rdb_gro_app/view/auth/login/login_page.dart';
 import 'package:rdb_gro_app/view/home/home_page.dart';
@@ -81,7 +81,7 @@ class RouteHelper {
         transition: Transition.fadeIn),
     GetPage(
         name: info,
-        page: () => const InfoPage(),
+        page: () => const InfoCreditPage(),
         transition: Transition.fadeIn),
     GetPage(
         name: service,
@@ -89,11 +89,11 @@ class RouteHelper {
         transition: Transition.fadeIn),
     GetPage(
         name: dashborad,
-        page: () => const DashboradPage(),
+        page: () => const DashboradCreditPage(),
         transition: Transition.fadeIn),
     GetPage(
         name: transition,
-        page: () => const TransitionPage(),
+        page: () => const TransitionCreditPage(),
         transition: Transition.fadeIn),
     GetPage(
         name: localservice,

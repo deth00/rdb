@@ -1,6 +1,8 @@
+// ignore_for_file: unused_element
+
 import 'package:flutter/material.dart';
 import 'package:loading_indicator/loading_indicator.dart';
-import 'package:rdb_gro_app/utils/app_colors.dart';
+// import 'package:rdb_gro_app/utils/app_colors.dart';
 
 class MyDialog {
   _showSingleAnimationDialog(
