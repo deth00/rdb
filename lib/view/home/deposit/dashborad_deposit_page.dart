@@ -5,14 +5,14 @@ import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
 import 'package:rdb_gro_app/utils/dimensions.dart';
 
-class DashboradCreditPage extends StatefulWidget {
-  const DashboradCreditPage({super.key});
+class DeshboradDepositPage extends StatefulWidget {
+  const DeshboradDepositPage({super.key});
 
   @override
-  State<DashboradCreditPage> createState() => _DashboradCreditPageState();
+  State<DeshboradDepositPage> createState() => _DeshboradDepositPageState();
 }
 
-class _DashboradCreditPageState extends State<DashboradCreditPage> {
+class _DeshboradDepositPageState extends State<DeshboradDepositPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +41,7 @@ class _DashboradCreditPageState extends State<DashboradCreditPage> {
                   ),
                 ),
                 Text(
-                  'ບັນຊີເງິນກູ້',
+                  'ບັນຊີເງິນຝາກ',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -132,7 +132,7 @@ class _DashboradCreditPageState extends State<DashboradCreditPage> {
                       horizontal: Dimensions.height10),
                   child: GestureDetector(
                     onTap: () {
-                      Get.toNamed(RouteHelper.getTransition());
+                      Get.toNamed(RouteHelper.getDepositTransition());
                     },
                     child: Container(
                       height: Dimensions.height120,
@@ -146,33 +146,6 @@ class _DashboradCreditPageState extends State<DashboradCreditPage> {
                           Image.asset(AppImage.trn),
                           Text(
                             'ການເຄື່ອນໄຫວ',
-                            style: TextStyle(fontSize: Dimensions.font16),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      vertical: Dimensions.width10,
-                      horizontal: Dimensions.height10),
-                  child: GestureDetector(
-                    onTap: () {
-                      Get.toNamed(RouteHelper.getInstallments());
-                    },
-                    child: Container(
-                      height: Dimensions.height120,
-                      width: Dimensions.width120,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Image.asset(AppImage.khop),
-                          Text(
-                            'ຄົບງວດຊຳລະ',
                             style: TextStyle(fontSize: Dimensions.font16),
                           ),
                         ],
