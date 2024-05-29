@@ -1,7 +1,10 @@
 import 'package:get/get.dart';
 import 'package:rdb_gro_app/view/home/credit/dashborad_page.dart';
+import 'package:rdb_gro_app/view/home/credit/installments_page.dart';
 import 'package:rdb_gro_app/view/home/credit/transition_credit_page.dart';
 import 'package:rdb_gro_app/view/home/credit/info_credit_page.dart';
+import 'package:rdb_gro_app/view/home/deposit/dashborad_deposit_page.dart';
+import 'package:rdb_gro_app/view/home/deposit/transition_deposit_page.dart';
 import 'package:rdb_gro_app/view/service/calendar/calendar_page.dart';
 import 'package:rdb_gro_app/view/auth/login/login_page.dart';
 import 'package:rdb_gro_app/view/home/home_page.dart';
@@ -10,8 +13,9 @@ import 'package:rdb_gro_app/view/service/local/local_service_page.dart';
 import 'package:rdb_gro_app/view/news/news_page.dart';
 import 'package:rdb_gro_app/view/service/service_page.dart';
 import 'package:rdb_gro_app/view/splash_screen.dart';
-import 'package:rdb_gro_app/widgets/nav.dart';
-import 'package:rdb_gro_app/widgets/navbar.dart';
+import 'package:rdb_gro_app/widgets/nav/nav_credit.dart';
+import 'package:rdb_gro_app/widgets/nav/nav_deposit.dart';
+import 'package:rdb_gro_app/widgets/nav/navbar.dart';
 
 class RouteHelper {
   static const String initial = "/";
@@ -36,11 +40,17 @@ class RouteHelper {
   static const String info = '/info';
   static String getInfo() => info;
 
-  static const String dashborad = '/dashborad';
-  static String getDashborad() => dashborad;
+  static const String creditDeshborad = '/creditDeshborad';
+  static String getCreditDashborad() => creditDeshborad;
+
+  static const String depositDeshborad = '/depositDeshborad';
+  static String getDepostiDashborad() => depositDeshborad;
 
   static const String transition = '/transition';
   static String getTransition() => transition;
+
+  static const String depositTransition = '/depositTransition';
+  static String getDepositTransition() => depositTransition;
 
   static const String localservice = '/localservice';
   static String getLocalService() => localservice;
@@ -51,11 +61,17 @@ class RouteHelper {
   static const String news = '/news';
   static String getNews() => news;
 
+  static const String installments = '/installments';
+  static String getInstallments() => installments;
+
   static const String navbar = '/navbar';
   static String getNavbar() => navbar;
 
-  static const String nav = '/nav';
-  static String getNav() => nav;
+  static const String navCredit = '/navCredit';
+  static String getNavCredit() => navCredit;
+
+  static const String navDeposit = '/navDeposit';
+  static String getNavDeposit() => navDeposit;
 
   static List<GetPage> routes = [
     GetPage(name: splashPage, page: () => const SplashScreen()),
@@ -68,8 +84,12 @@ class RouteHelper {
         page: () => const NavBar(),
         transition: Transition.fadeIn),
     GetPage(
-        name: nav,
-        page: () => const NavSecond(),
+        name: navCredit,
+        page: () => const NavCredit(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: navDeposit,
+        page: () => const NavDeposti(),
         transition: Transition.fadeIn),
     GetPage(
         name: calendar,
@@ -88,12 +108,20 @@ class RouteHelper {
         page: () => const ServicePage(),
         transition: Transition.fadeIn),
     GetPage(
-        name: dashborad,
+        name: creditDeshborad,
         page: () => const DashboradCreditPage(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: depositDeshborad,
+        page: () => const DeshboradDepositPage(),
         transition: Transition.fadeIn),
     GetPage(
         name: transition,
         page: () => const TransitionCreditPage(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: depositTransition,
+        page: () => const TransitionDepositPage(),
         transition: Transition.fadeIn),
     GetPage(
         name: localservice,
@@ -106,6 +134,10 @@ class RouteHelper {
     GetPage(
         name: news,
         page: () => const NewsPage(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: installments,
+        page: () => const InstallmentsPage(),
         transition: Transition.fadeIn),
   ];
 }

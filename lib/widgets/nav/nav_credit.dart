@@ -8,14 +8,14 @@ import 'package:rdb_gro_app/view/home/credit/transition_credit_page.dart';
 import 'package:rdb_gro_app/view/service/service_page.dart';
 import 'package:rdb_gro_app/view/setting/setting_page.dart';
 
-class NavSecond extends StatefulWidget {
-  const NavSecond({super.key});
+class NavCredit extends StatefulWidget {
+  const NavCredit({super.key});
 
   @override
-  State<NavSecond> createState() => _NavSecondState();
+  State<NavCredit> createState() => _NavCreditState();
 }
 
-class _NavSecondState extends State<NavSecond> {
+class _NavCreditState extends State<NavCredit> {
   int _sectectIndex = 0;
   // _widgetOptions(int index) {
   //   return IndexedStack(

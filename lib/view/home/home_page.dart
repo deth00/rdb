@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// import 'package:rdb_gro_app/base/mydialog.dart';
 import 'package:rdb_gro_app/controller/info_crd_controller.dart';
 import 'package:rdb_gro_app/controller/slider_controller.dart';
 import 'package:rdb_gro_app/route/route_helper.dart';
@@ -202,7 +201,7 @@ class _HomePageState extends State<HomePage> {
                 // color: Colors.amber,
                 child: GestureDetector(
                   onTap: () {
-                    // Get.toNamed(RouteHelper.getNavbar());
+                    Get.toNamed(RouteHelper.getNavDeposit());
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -262,11 +261,10 @@ class _HomePageState extends State<HomePage> {
                 height: Dimensions.height120,
                 width: double.infinity,
                 // color: Colors.amber,
-                child: GestureDetector(
-                  onTap: () {
-                    Get.toNamed(RouteHelper.getNav());
-                  },
-                  child: Row(
+                child: GestureDetector(onTap: () {
+                  Get.toNamed(RouteHelper.getNavCredit());
+                }, child: GetBuilder<InfoCrdController>(builder: (credit) {
+                  return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Padding(
@@ -289,13 +287,13 @@ class _HomePageState extends State<HomePage> {
                               style: TextStyle(fontSize: Dimensions.font20),
                             ),
                             Text(
-                              '0201 111 xxxxxxxxxx 63',
+                              credit.infoaccList[0].acno,
                               style: TextStyle(
                                   color: Colors.grey,
                                   fontSize: Dimensions.font16),
                             ),
                             Text(
-                              'Phongsavanh BPC',
+                              credit.infoaccList[0].acname,
                               style: TextStyle(
                                   color: Colors.grey,
                                   fontSize: Dimensions.font16),
@@ -303,16 +301,21 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                       ),
+                      SizedBox(
+                        width: Dimensions.width10,
+                      ),
                       Padding(
-                        padding: EdgeInsets.only(right: Dimensions.width10),
+                        padding: EdgeInsets.only(
+                          right: Dimensions.width10,
+                        ),
                         child: Image.asset(
                           AppImage.qr,
                           scale: MediaQuery.of(context).size.height / 750,
                         ),
                       )
                     ],
-                  ),
-                ),
+                  );
+                })),
               ),
             ],
           ),

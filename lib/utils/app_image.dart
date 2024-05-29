@@ -25,4 +25,5 @@ class AppImage {
   static const finger = 'assets/icons/finger.png';
   static const mobile = 'assets/icons/mobile.png';
   static const noti = 'assets/icons/noti.png';
+  static const khop = 'assets/icons/Group 290.png';
 }
