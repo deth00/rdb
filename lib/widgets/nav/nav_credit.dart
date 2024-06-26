@@ -3,8 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/dimensions.dart';
-import 'package:rdb_gro_app/view/home/credit/dashborad_page.dart';
-import 'package:rdb_gro_app/view/home/credit/transition_credit_page.dart';
+import 'package:rdb_gro_app/view/credit/dashborad_page.dart';
+import 'package:rdb_gro_app/view/credit/transition_credit_page.dart';
+import 'package:rdb_gro_app/view/notification/noti_page.dart';
 import 'package:rdb_gro_app/view/service/service_page.dart';
 import 'package:rdb_gro_app/view/setting/setting_page.dart';
 
@@ -31,7 +32,7 @@ class _NavCreditState extends State<NavCredit> {
 
   List page = [
     const DashboradCreditPage(),
-    const TransitionCreditPage(),
+    const NotiPage(),
     const SettingPage(),
     const ServicePage()
   ];

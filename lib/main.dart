@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rdb_gro_app/controller/branch_local_controller.dart';
+import 'package:rdb_gro_app/controller/deposit_controller.dart';
 import 'package:rdb_gro_app/controller/info_crd_controller.dart';
 import 'package:rdb_gro_app/controller/news_controller.dart';
 import 'package:rdb_gro_app/controller/slider_controller.dart';
@@ -26,18 +28,23 @@ class MyApp extends StatelessWidget {
     return GetBuilder<SliderController>(builder: (_) {
       return GetBuilder<NewsController>(builder: (_) {
         return GetBuilder<InfoCrdController>(builder: (_) {
-          return GetMaterialApp(
-            title: 'Flutter Demo',
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              useMaterial3: true,
-            ),
-            translationsKeys: AppTranslation.translations,
-            locale: const Locale('lo', 'LO'),
-            initialRoute: RouteHelper.splashPage,
-            getPages: RouteHelper.routes,
-          );
+          return GetBuilder<DepositController>(builder: (_) {
+            return GetBuilder<BranchLocalController>(builder: (_) {
+              return GetMaterialApp(
+                title: 'Flutter Demo',
+                debugShowCheckedModeBanner: false,
+                theme: ThemeData(
+                  colorScheme:
+                      ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+                  useMaterial3: true,
+                ),
+                translationsKeys: AppTranslation.translations,
+                locale: const Locale('lo', 'LO'),
+                initialRoute: RouteHelper.splashPage,
+                getPages: RouteHelper.routes,
+              );
+            });
+          });
         });
       });
     });

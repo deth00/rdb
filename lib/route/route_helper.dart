@@ -1,16 +1,18 @@
 import 'package:get/get.dart';
-import 'package:rdb_gro_app/view/home/credit/dashborad_page.dart';
-import 'package:rdb_gro_app/view/home/credit/installments_page.dart';
-import 'package:rdb_gro_app/view/home/credit/transition_credit_page.dart';
-import 'package:rdb_gro_app/view/home/credit/info_credit_page.dart';
-import 'package:rdb_gro_app/view/home/deposit/dashborad_deposit_page.dart';
-import 'package:rdb_gro_app/view/home/deposit/transition_deposit_page.dart';
+import 'package:rdb_gro_app/view/credit/dashborad_page.dart';
+import 'package:rdb_gro_app/view/credit/installments_page.dart';
+import 'package:rdb_gro_app/view/credit/transition_credit_page.dart';
+import 'package:rdb_gro_app/view/home/info_credit_page.dart';
+import 'package:rdb_gro_app/view/deposit/dashborad_deposit_page.dart';
+import 'package:rdb_gro_app/view/deposit/transition_deposit_page.dart';
 import 'package:rdb_gro_app/view/service/calendar/calendar_page.dart';
 import 'package:rdb_gro_app/view/auth/login/login_page.dart';
 import 'package:rdb_gro_app/view/home/home_page.dart';
 import 'package:rdb_gro_app/view/service/fees_page.dart';
 import 'package:rdb_gro_app/view/service/local/local_service_page.dart';
 import 'package:rdb_gro_app/view/news/news_page.dart';
+import 'package:rdb_gro_app/view/service/local/map_page.dart';
+import 'package:rdb_gro_app/view/service/rate/rate_service_page.dart';
 import 'package:rdb_gro_app/view/service/service_page.dart';
 import 'package:rdb_gro_app/view/splash_screen.dart';
 import 'package:rdb_gro_app/widgets/nav/nav_credit.dart';
@@ -72,6 +74,12 @@ class RouteHelper {
 
   static const String navDeposit = '/navDeposit';
   static String getNavDeposit() => navDeposit;
+
+  static const String rateService = '/rateService';
+  static String getRateService() => rateService;
+
+  static const String mapPage = '/map';
+  static String getMap(int pageId) => '$mapPage?pageId=$pageId';
 
   static List<GetPage> routes = [
     GetPage(name: splashPage, page: () => const SplashScreen()),
@@ -138,6 +146,19 @@ class RouteHelper {
     GetPage(
         name: installments,
         page: () => const InstallmentsPage(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: rateService,
+        page: () => const RateService(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: mapPage,
+        page: () {
+          var pageId = Get.parameters['pageId'];
+          return MapPage(
+            pageId: int.parse(pageId!),
+          );
+        },
         transition: Transition.fadeIn),
   ];
 }
