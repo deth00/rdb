@@ -7,11 +7,13 @@ class ServiceButtom extends StatelessWidget {
   final String text;
   final String image;
   final VoidCallback? onpress;
+  final Widget? widget;
   const ServiceButtom(
       {super.key,
       required this.title,
       required this.text,
       required this.image,
+      this.widget,
       this.onpress});
 
   @override
@@ -60,10 +62,14 @@ class ServiceButtom extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    color: AppColors.mainColor,
-                  )
+                  widget == null
+                      ? Icon(
+                          Icons.arrow_forward_ios,
+                          color: AppColors.mainColor,
+                        )
+                      : SizedBox(
+                          child: widget,
+                        )
                 ],
               ),
               Padding(

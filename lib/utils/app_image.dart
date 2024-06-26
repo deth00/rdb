@@ -26,4 +26,8 @@ class AppImage {
   static const mobile = 'assets/icons/mobile.png';
   static const noti = 'assets/icons/noti.png';
   static const khop = 'assets/icons/Group 290.png';
+  static const faceID = 'assets/icons/faceID.png';
+  static const cop = 'assets/icons/cop.png';
+  static const inp = 'assets/icons/inp.png';
+  static const sms = 'assets/icons/sms.png';
 }

@@ -5,6 +5,7 @@ import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
 import 'package:rdb_gro_app/utils/dimensions.dart';
 import 'package:rdb_gro_app/view/news/news_loading.dart';
+import 'package:rdb_gro_app/widgets/header.dart';
 
 class NewsPage extends StatefulWidget {
   const NewsPage({super.key});
@@ -17,42 +18,15 @@ class _NewsPageState extends State<NewsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
-            Container(
-              height: Dimensions.height55,
-              width: double.infinity,
-              color: AppColors.bgColor,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Get.back();
-                    },
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                          left: Dimensions.width10, right: Dimensions.width10),
-                      child: Image.asset(
-                        AppImage.back,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  Text(
-                    'ຂ່າວສານ',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: Dimensions.font20),
-                  ),
-                  Padding(
-                      padding: EdgeInsets.only(
-                          top: Dimensions.height10, right: Dimensions.height10),
-                      child: Container()),
-                ],
-              ),
+            Header(
+              text: 'ຂ່າວສານ',
+              onTap1: () {
+                Get.back();
+              },
             ),
             Expanded(
               child: SingleChildScrollView(

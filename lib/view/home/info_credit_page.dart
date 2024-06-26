@@ -3,13 +3,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:rdb_gro_app/controller/deposit_controller.dart';
 import 'package:rdb_gro_app/controller/info_crd_controller.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
 import 'package:rdb_gro_app/utils/dimensions.dart';
 
 class InfoCreditPage extends StatefulWidget {
-  const InfoCreditPage({super.key});
+  final pageId;
+  const InfoCreditPage({super.key, this.pageId});
 
   @override
   State<InfoCreditPage> createState() => _InfoCreditPageState();
@@ -19,6 +21,7 @@ class _InfoCreditPageState extends State<InfoCreditPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
@@ -26,7 +29,7 @@ class _InfoCreditPageState extends State<InfoCreditPage> {
               height: 60,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: AppColors.bgColor,
+                color: AppColors.mainColor,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -68,73 +71,97 @@ class _InfoCreditPageState extends State<InfoCreditPage> {
                 ],
               ),
             ),
-            Padding(
-              padding: EdgeInsets.all(Dimensions.height15),
-              child: Container(
-                height: Dimensions.height120,
-                width: Dimensions.width120,
-                decoration: BoxDecoration(
-                  color: AppColors.mainColor,
-                  borderRadius: BorderRadius.circular(Dimensions.height360),
-                ),
-                child: Icon(
-                  Icons.account_box,
-                  color: Colors.white,
-                  size: Dimensions.height120,
-                ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: GetBuilder<InfoCrdController>(builder: (data) {
+                  return Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(Dimensions.height15),
+                        child: Container(
+                          height: Dimensions.height120,
+                          width: Dimensions.width120,
+                          decoration: BoxDecoration(
+                            color: AppColors.mainColor,
+                            borderRadius:
+                                BorderRadius.circular(Dimensions.height360),
+                          ),
+                          child: Icon(
+                            Icons.account_box,
+                            color: Colors.white,
+                            size: Dimensions.height120,
+                          ),
+                        ),
+                      ),
+                      ConInfo(
+                          title: 'ຊື່ບັນຊີ ',
+                          text: data.infoList[0].fullname,
+                          style: TextStyle(fontSize: Dimensions.font16)),
+                      GetBuilder<DepositController>(builder: (dat) {
+                        return ConInfo(
+                            title: 'ເລກບັນຊີເງິນຝາກ ',
+                            text: dat.deposit[0].acno,
+                            style: TextStyle(fontSize: Dimensions.font16));
+                      }),
+                      ConInfo(
+                          title: 'ເລກບັນຊີເງິກູ້ ',
+                          text: data.infoaccList[0].acno,
+                          style: TextStyle(fontSize: Dimensions.font16)),
+                      ConInfo(
+                          title: 'ເລກທີສັນຍາ ',
+                          text: 'Loan 123456789',
+                          style: TextStyle(fontSize: Dimensions.font16)),
+                      ConInfo(
+                          title: 'ວັນທີປ່ອຍກູ້ ',
+                          text: '10/2/2023',
+                          style: TextStyle(fontSize: Dimensions.font16)),
+                      ConInfo(
+                          title: 'ວັນທີ່ໝົດສັນຍາ ',
+                          text: '10/2/2024',
+                          style: TextStyle(fontSize: Dimensions.font16)),
+                      ConInfo(
+                          title: 'ໄລຍະກູ້ຢືມ ',
+                          text: 'ໄລຍະຍາວ (7ປີ)',
+                          style: TextStyle(fontSize: Dimensions.font16)),
+                      ConInfo(
+                          title: 'ວົງເງິນກູ້ຢືມ ',
+                          text: '100,000,000 ກີບ',
+                          style: TextStyle(fontSize: Dimensions.font16)),
+                      ConInfo(
+                          title: 'ຕົ້ນທຶນທີ່ຊຳລແລ້ວ ',
+                          text: '70,000,000 ກີບ',
+                          style: TextStyle(fontSize: Dimensions.font16)),
+                      ConInfo(
+                          title: 'ຍອດໜີ້ ',
+                          text: NumberFormat.currency(
+                                  locale: 'lo',
+                                  customPattern: '#,### \u00a4',
+                                  symbol: 'ກີບ',
+                                  decimalDigits: 2)
+                              .format(data.infoaccList[0].balance),
+                          style: TextStyle(
+                              fontSize: Dimensions.font16, color: Colors.red)),
+                      ConInfo(
+                          title: 'ດອກເບ້ຍຄ້າງ ',
+                          text: NumberFormat.currency(
+                                  locale: 'lo',
+                                  customPattern: '#,### \u00a4',
+                                  symbol: 'ກີບ',
+                                  decimalDigits: 2)
+                              .format(data.infoaccList[0].intpaid),
+                          style: TextStyle(
+                              fontSize: Dimensions.font16, color: Colors.red)),
+                      ConInfo(
+                          title: 'ຊັ້ນໜີ້ ',
+                          text: 'A',
+                          style: TextStyle(
+                              fontSize: Dimensions.font16,
+                              color: Colors.green)),
+                    ],
+                  );
+                }),
               ),
             ),
-            GetBuilder<InfoCrdController>(builder: (data) {
-              return Column(
-                children: [
-                  ConInfo(
-                      title: 'ຊື່ບັນຊີ ',
-                      text: data.infoList[0].shortname,
-                      style: TextStyle(fontSize: Dimensions.font16)),
-                  ConInfo(
-                      title: 'ເລກບັນຊີ ',
-                      text: data.infoaccList[0].acno,
-                      style: TextStyle(fontSize: Dimensions.font16)),
-                  ConInfo(
-                      title: 'ປະເພດ ',
-                      text: 'ບັນຊີເງິນກູ້',
-                      style: TextStyle(fontSize: Dimensions.font16)),
-                  ConInfo(
-                      title: 'ເລກທີສັນຍາ ',
-                      text: 'Loan 123456789',
-                      style: TextStyle(fontSize: Dimensions.font16)),
-                  ConInfo(
-                      title: 'ໄລຍະກູ້ຢືມ ',
-                      text: 'ໄລຍະສັ້ນ (1ປີ)',
-                      style: TextStyle(fontSize: Dimensions.font16)),
-                  ConInfo(
-                      title: 'ຍອດໜີ້ ',
-                      text: NumberFormat.currency(
-                              locale: 'lo',
-                              customPattern: '#,### \u00a4',
-                              symbol: 'ກີບ',
-                              decimalDigits: 2)
-                          .format(data.infoaccList[0].balance),
-                      style: TextStyle(
-                          fontSize: Dimensions.font16, color: Colors.red)),
-                  ConInfo(
-                      title: 'ດອກເບ້ຍຄ້າງ ',
-                      text: NumberFormat.currency(
-                              locale: 'lo',
-                              customPattern: '#,### \u00a4',
-                              symbol: 'ກີບ',
-                              decimalDigits: 2)
-                          .format(data.infoaccList[0].intpaid),
-                      style: TextStyle(
-                          fontSize: Dimensions.font16, color: Colors.red)),
-                  ConInfo(
-                      title: 'ຊັ້ນໜີ້ ',
-                      text: 'A',
-                      style: TextStyle(
-                          fontSize: Dimensions.font16, color: Colors.green)),
-                ],
-              );
-            }),
 
             // Padding(
             //   padding: EdgeInsets.all(Dimensions.height10),
