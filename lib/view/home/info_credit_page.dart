@@ -128,7 +128,7 @@ class _InfoCreditPageState extends State<InfoCreditPage> {
                           text: '100,000,000 ກີບ',
                           style: TextStyle(fontSize: Dimensions.font16)),
                       ConInfo(
-                          title: 'ຕົ້ນທຶນທີ່ຊຳລແລ້ວ ',
+                          title: 'ຕົ້ນທຶນທີ່ຊຳລະແລ້ວ ',
                           text: '70,000,000 ກີບ',
                           style: TextStyle(fontSize: Dimensions.font16)),
                       ConInfo(

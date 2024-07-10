@@ -30,4 +30,5 @@ class AppImage {
   static const cop = 'assets/icons/cop.png';
   static const inp = 'assets/icons/inp.png';
   static const sms = 'assets/icons/sms.png';
+  static const logouts = 'assets/images/logout.png';
 }

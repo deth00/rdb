@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:rdb_gro_app/base/mydialog.dart';
+import 'package:rdb_gro_app/route/route_helper.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
 import 'package:rdb_gro_app/utils/dimensions.dart';
@@ -52,18 +55,27 @@ class Header extends StatelessWidget {
                             top: Dimensions.height10,
                             right: Dimensions.width10,
                             left: MediaQuery.of(context).size.width * 0.108),
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              AppImage.logout,
-                              scale: 1.2,
-                            ),
-                            Text('ອອກລະບົບ',
-                                style: TextStyle(
-                                    fontSize: Dimensions.font12,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white))
-                          ],
+                        child: GestureDetector(
+                          onTap: () async {
+                            var value = await MyDialog()
+                                .showLogoutDialog(context: context);
+                            if (value == 'ຕົກລົງ') {
+                              Get.offAllNamed(RouteHelper.getLogin());
+                            }
+                          },
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                AppImage.logout,
+                                scale: 1.2,
+                              ),
+                              Text('ອອກລະບົບ',
+                                  style: TextStyle(
+                                      fontSize: Dimensions.font12,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white))
+                            ],
+                          ),
                         ),
                       ),
               ],
@@ -103,7 +115,13 @@ class Header extends StatelessWidget {
                         width: Dimensions.width20,
                       )
                     : GestureDetector(
-                        onTap: onTaps,
+                        onTap: () async {
+                          var value = await MyDialog()
+                              .showLogoutDialog(context: context);
+                          if (value == 'ຕົກລົງ') {
+                            Get.offAllNamed(RouteHelper.getLogin());
+                          }
+                        },
                         child: Padding(
                           padding: EdgeInsets.only(
                               top: Dimensions.height10,

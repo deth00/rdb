@@ -10,7 +10,7 @@ class DepositRepo extends GetxService {
   Future<Response> getInfo() async {
     Response response = await apiClientDps.postDataDps(
       AppConstants.DEPOSIT_URL,
-      {"auth_id": "5", "auth_name": "nbb", "acno": "1201000000000060001"},
+      {"auth_id": "5", "auth_name": "nbb", "acno": "0101000000174524001"},
     );
     return response;
   }
