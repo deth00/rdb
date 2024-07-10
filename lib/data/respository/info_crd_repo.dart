@@ -26,7 +26,7 @@ class InfoCrdRepo extends GetxService {
   Future<Response> getInfo() async {
     Response response = await apiClientCrd.postDataCrd(
       AppConstants.INFO_CRE_URL,
-      {"auth_id": "5", "auth_name": "nbb", "ctmcode": "0508099576"},
+      {"auth_id": "5", "auth_name": "nbb", "ctmcode": "0501099738"},
     );
     // print(response.body.toString());
     return response;
@@ -35,7 +35,7 @@ class InfoCrdRepo extends GetxService {
   Future<Response> getInfoAcc() async {
     Response response = await apiClientCrd.postDataCrd(
       AppConstants.INFO_CRE_ACC_URL,
-      {"auth_id": "5", "auth_name": "nbb", "ctmcode": "0508099576"},
+      {"auth_id": "5", "auth_name": "nbb", "ctmcode": "0501099738"},
     );
     return response;
   }

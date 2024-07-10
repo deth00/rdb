@@ -33,56 +33,76 @@ class _DashboradCreditPageState extends State<DashboradCreditPage> {
           ),
           GetBuilder<InfoCrdController>(builder: (data) {
             return Container(
-              height: Dimensions.height100,
+              height: Dimensions.height120,
               width: double.infinity,
               decoration: BoxDecoration(color: AppColors.bgColor2),
               child: Padding(
                 padding: EdgeInsets.all(Dimensions.height10),
                 child: Row(
                   children: [
-                    Image.asset(AppImage.mF),
+                    Image.asset(
+                      AppImage.mF,
+                      scale: MediaQuery.of(context).size.width * 0.003,
+                    ),
                     SizedBox(width: Dimensions.width10),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          isvisible
-                              ? data.infoaccList[0].acno
-                              : '231 xxxx xxxx 123',
-                          style: TextStyle(
-                              fontSize: Dimensions.font20,
-                              fontWeight: FontWeight.w400),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isvisible = !isvisible;
-                            });
-                          },
-                          child: Container(
-                            height: Dimensions.height30,
-                            width: Dimensions.width100,
-                            decoration: BoxDecoration(
-                                color: AppColors.mainColor,
-                                borderRadius:
-                                    BorderRadius.circular(Dimensions.radius20),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Colors.grey.shade400,
-                                      offset: const Offset(1, 2),
-                                      blurRadius: 3)
-                                ]),
-                            child: Center(
-                              child: Text(
-                                'ສະເເດງ',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: Dimensions.font16),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              isvisible
+                                  ? data.infoaccList[0].acno
+                                  : '231 xxxx xxxx 123',
+                              style: TextStyle(
+                                  fontSize: Dimensions.font20,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            SizedBox(
+                              width: Dimensions.width30,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  isvisible = !isvisible;
+                                });
+                              },
+                              child: Container(
+                                height: Dimensions.height30,
+                                width: Dimensions.width100,
+                                decoration: BoxDecoration(
+                                    color: AppColors.mainColor,
+                                    borderRadius: BorderRadius.circular(
+                                        Dimensions.radius20),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors.grey.shade400,
+                                          offset: const Offset(1, 2),
+                                          blurRadius: 3)
+                                    ]),
+                                child: Center(
+                                  child: Text(
+                                    'ສະເເດງ',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: Dimensions.font16),
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
+                          ],
+                        ),
+                        Row(
+                          children: [Text('ຍອດລວມ:'), Text('123456')],
+                        ),
+                        Row(
+                          children: [Text('ຕົ້ນທຶນ:'), Text('123456')],
+                        ),
+                        Row(
+                          children: [Text('ດອກເບ້ຍ:'), Text('123456')],
                         ),
                       ],
                     )

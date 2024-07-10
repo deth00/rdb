@@ -1,6 +1,7 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rdb_gro_app/base/mydialog.dart';
 import 'package:rdb_gro_app/controller/deposit_controller.dart';
 import 'package:rdb_gro_app/controller/info_crd_controller.dart';
 import 'package:rdb_gro_app/controller/slider_controller.dart';
@@ -60,18 +61,27 @@ class _HomePageState extends State<HomePage> {
                     Padding(
                       padding: EdgeInsets.only(
                           top: Dimensions.height10, right: Dimensions.width10),
-                      child: Column(
-                        children: [
-                          Image.asset(
-                            AppImage.logout,
-                            scale: 1.2,
-                          ),
-                          Text('ອອກລະບົບ',
-                              style: TextStyle(
-                                  fontSize: Dimensions.font12,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white))
-                        ],
+                      child: GestureDetector(
+                        onTap: () async {
+                          var value = await MyDialog()
+                              .showLogoutDialog(context: context);
+                          if (value == 'ຕົກລົງ') {
+                            Get.offAllNamed(RouteHelper.getLogin());
+                          }
+                        },
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              AppImage.logout,
+                              scale: 1.2,
+                            ),
+                            Text('ອອກລະບົບ',
+                                style: TextStyle(
+                                    fontSize: Dimensions.font12,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white))
+                          ],
+                        ),
                       ),
                     ),
                   ],

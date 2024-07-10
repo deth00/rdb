@@ -73,7 +73,7 @@ class InfoCrdController extends GetxController {
         body: jsonEncode({
           "auth_id": 5,
           "auth_name": "nbb",
-          "acno": _infoaccList[0].acno,
+          "acno": _infoaccList[0].acno ?? Null,
           "fromDate": "04-10-2022",
           "toDate": "01-12-2030"
         }));
