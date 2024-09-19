@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:rdb_gro_app/controller/info_crd_controller.dart';
 import 'package:rdb_gro_app/route/route_helper.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
@@ -33,7 +34,7 @@ class _DashboradCreditPageState extends State<DashboradCreditPage> {
           ),
           GetBuilder<InfoCrdController>(builder: (data) {
             return Container(
-              height: Dimensions.height120,
+              height: Dimensions.height120 + Dimensions.height10,
               width: double.infinity,
               decoration: BoxDecoration(color: AppColors.bgColor2),
               child: Padding(
@@ -42,7 +43,7 @@ class _DashboradCreditPageState extends State<DashboradCreditPage> {
                   children: [
                     Image.asset(
                       AppImage.mF,
-                      scale: MediaQuery.of(context).size.width * 0.003,
+                      scale: MediaQuery.of(context).size.width * 0.0032,
                     ),
                     SizedBox(width: Dimensions.width10),
                     Column(
@@ -57,12 +58,11 @@ class _DashboradCreditPageState extends State<DashboradCreditPage> {
                                   ? data.infoaccList[0].acno
                                   : '231 xxxx xxxx 123',
                               style: TextStyle(
+                                  color: Colors.black.withOpacity(0.8),
                                   fontSize: Dimensions.font20,
-                                  fontWeight: FontWeight.w400),
+                                  fontWeight: FontWeight.bold),
                             ),
-                            SizedBox(
-                              width: Dimensions.width30,
-                            ),
+                            SizedBox(width: Dimensions.width30),
                             GestureDetector(
                               onTap: () {
                                 setState(() {
@@ -96,13 +96,75 @@ class _DashboradCreditPageState extends State<DashboradCreditPage> {
                           ],
                         ),
                         Row(
-                          children: [Text('ຍອດລວມ:'), Text('123456')],
-                        ),
-                        Row(
-                          children: [Text('ຕົ້ນທຶນ:'), Text('123456')],
-                        ),
-                        Row(
-                          children: [Text('ດອກເບ້ຍ:'), Text('123456')],
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'ຍອດລວມ:',
+                                  style: TextStyle(
+                                      color: Colors.black.withOpacity(0.8),
+                                      fontSize: Dimensions.font16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  'ຕົ້ນທຶນ:',
+                                  style: TextStyle(
+                                      color: Colors.black.withOpacity(0.8),
+                                      fontSize: Dimensions.font16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  'ດອກເບ້ຍ:',
+                                  style: TextStyle(
+                                      color: Colors.black.withOpacity(0.8),
+                                      fontSize: Dimensions.font16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                            SizedBox(width: Dimensions.width10),
+                            Column(
+                              children: [
+                                Text(
+                                  NumberFormat.currency(
+                                          locale: 'lo',
+                                          customPattern: '#,### \u00a4',
+                                          symbol: 'ກີບ',
+                                          decimalDigits: 2)
+                                      .format(data.infoaccList[0].balance),
+                                  style: TextStyle(
+                                      color: Colors.black.withOpacity(0.8),
+                                      fontSize: Dimensions.font16,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Text(
+                                  NumberFormat.currency(
+                                          locale: 'lo',
+                                          customPattern: '#,### \u00a4',
+                                          symbol: 'ກີບ',
+                                          decimalDigits: 2)
+                                      .format(data.infoaccList[0].balance),
+                                  style: TextStyle(
+                                      color: Colors.black.withOpacity(0.8),
+                                      fontSize: Dimensions.font16,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Text(
+                                  NumberFormat.currency(
+                                          locale: 'lo',
+                                          customPattern: '#,### \u00a4',
+                                          symbol: 'ກີບ',
+                                          decimalDigits: 2)
+                                      .format(data.infoaccList[0].balance),
+                                  style: TextStyle(
+                                      color: Colors.black.withOpacity(0.8),
+                                      fontSize: Dimensions.font16,
+                                      fontWeight: FontWeight.w600),
+                                )
+                              ],
+                            ),
+                          ],
                         ),
                       ],
                     )

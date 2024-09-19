@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:intl/intl.dart';
 import 'package:rdb_gro_app/controller/info_crd_controller.dart';
-import 'package:rdb_gro_app/route/route_helper.dart';
+// import 'package:rdb_gro_app/route/route_helper.dart';
 import 'package:rdb_gro_app/utils/app_colors.dart';
 import 'package:rdb_gro_app/utils/app_image.dart';
 import 'package:rdb_gro_app/utils/dimensions.dart';
@@ -48,44 +48,76 @@ class _TransitionCreditPageState extends State<TransitionCreditPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            isvisible
-                                ? data.infoaccList[0].acno
-                                : '231 xxxx xxxx 123',
-                            style: TextStyle(
-                                fontSize: Dimensions.font20,
-                                fontWeight: FontWeight.w400),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                isvisible = !isvisible;
-                              });
-                            },
-                            child: Container(
-                              height: Dimensions.height30,
-                              width: Dimensions.width100,
-                              decoration: BoxDecoration(
-                                  color: AppColors.mainColor,
-                                  borderRadius: BorderRadius.circular(
-                                      Dimensions.radius20),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Colors.grey.shade400,
-                                        offset: const Offset(1, 2),
-                                        blurRadius: 3)
-                                  ]),
-                              child: Center(
-                                child: Text(
-                                  'ສະເເດງ',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: Dimensions.font16),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                isvisible
+                                    ? data.infoaccList[0].acno
+                                    : '231 xxxx xxxx 123',
+                                style: TextStyle(
+                                    color: Colors.black.withOpacity(0.8),
+                                    fontSize: Dimensions.font20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                width: Dimensions.width30,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    isvisible = !isvisible;
+                                  });
+                                },
+                                child: Container(
+                                  height: Dimensions.height30,
+                                  width: Dimensions.width100,
+                                  decoration: BoxDecoration(
+                                      color: AppColors.mainColor,
+                                      borderRadius: BorderRadius.circular(
+                                          Dimensions.radius20),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Colors.grey.shade400,
+                                            offset: const Offset(1, 2),
+                                            blurRadius: 3)
+                                      ]),
+                                  child: Center(
+                                    child: Text(
+                                      'ສະເເດງ',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: Dimensions.font16),
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
+                            ],
                           ),
+                          Row(
+                            children: [
+                              Text(
+                                'ຕົ້ນທຶນຄົງເຫຼືອ: ',
+                                style: TextStyle(
+                                    color: Colors.black.withOpacity(0.8),
+                                    fontSize: Dimensions.font16,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                NumberFormat.currency(
+                                        locale: 'lo',
+                                        customPattern: '#,### \u00a4',
+                                        symbol: 'ກີບ',
+                                        decimalDigits: 2)
+                                    .format(data.infoaccList[0].balance),
+                                style: TextStyle(
+                                    color: Colors.black.withOpacity(0.8),
+                                    fontSize: Dimensions.font16,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          )
                         ],
                       )
                     ],
@@ -145,10 +177,11 @@ class _TransitionCreditPageState extends State<TransitionCreditPage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Center(
-                                    child: Image.asset(
-                                  AppImage.profile,
-                                  scale: 1.3,
-                                )),
+                                  child: Image.asset(
+                                    AppImage.profile,
+                                    scale: 1.3,
+                                  ),
+                                ),
                                 Container(
                                   height: double.infinity,
                                   width:
