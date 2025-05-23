@@ -210,10 +210,92 @@ class _HomePageState extends State<HomePage> {
                     ),
                   );
                 } else {
-                  return CircularProgressIndicator(color: AppColors.mainColor);
+                  // return CircularProgressIndicator(color: AppColors.mainColor);
+                  return Container(
+                    height: Dimensions.height120,
+                    width: double.infinity,
+                    color: AppColors.bgColor2,
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          left: Dimensions.width10, right: Dimensions.width10),
+                      child: Row(
+                        // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(right: Dimensions.width10),
+                            child: Image.asset(
+                              AppImage.photo,
+                              scale: MediaQuery.of(context).size.height / 750,
+                            ),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                '',
+                                style: TextStyle(
+                                    fontSize: Dimensions.font16,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              SizedBox(height: Dimensions.height10),
+                              Text(
+                                '',
+                                style: TextStyle(
+                                    fontSize: Dimensions.font16,
+                                    color: Colors.grey),
+                              ),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    '',
+                                    style: TextStyle(
+                                        fontSize: Dimensions.font16,
+                                        color: Colors.grey),
+                                  ),
+                                  SizedBox(width: Dimensions.width100),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Get.toNamed(RouteHelper.getInfo());
+                                    },
+                                    child: Container(
+                                      height: Dimensions.height30,
+                                      width: Dimensions.width100,
+                                      decoration: BoxDecoration(
+                                          color: AppColors.mainColor,
+                                          borderRadius: BorderRadius.circular(
+                                              Dimensions.radius20),
+                                          boxShadow: [
+                                            BoxShadow(
+                                                color: Colors.grey.shade400,
+                                                offset: const Offset(1, 2),
+                                                blurRadius: 3)
+                                          ]),
+                                      child: Center(
+                                        child: Text(
+                                          'ເບິ່ງຂໍ້ມູນ',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: Dimensions.font16),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
                 }
               }),
-              Container(
+              SizedBox(
                 height: Dimensions.height120,
                 width: double.infinity,
                 // color: Colors.amber,
@@ -284,9 +366,70 @@ class _HomePageState extends State<HomePage> {
                               )
                             ],
                           )
-                        : Center(
-                            child: CircularProgressIndicator(
-                                color: AppColors.mainColor));
+                        // : Center(
+                        //     child: CircularProgressIndicator(
+                        //         color: AppColors.mainColor));
+                        : Row(
+                            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: Dimensions.width10,
+                                    right: Dimensions.width10),
+                                child: Image.asset(
+                                  AppImage.mF,
+                                  scale:
+                                      MediaQuery.of(context).size.height / 750,
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsets.only(right: Dimensions.width10),
+                                child: SizedBox(
+                                  width:
+                                      Dimensions.width180 + Dimensions.width45,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'ບັນຊີເງິນຝາກ',
+                                        style: TextStyle(
+                                            fontSize: Dimensions.font20,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      Text(
+                                        '',
+                                        style: TextStyle(
+                                            color: Colors.grey,
+                                            fontSize: Dimensions.font16),
+                                      ),
+                                      Text(
+                                        '',
+                                        style: TextStyle(
+                                            color: Colors.grey,
+                                            fontSize: Dimensions.font16),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              // SizedBox(
+                              //   width: Dimensions.width10,
+                              // ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  right: Dimensions.width10,
+                                ),
+                                child: Image.asset(
+                                  AppImage.qr,
+                                  scale:
+                                      MediaQuery.of(context).size.height / 750,
+                                ),
+                              )
+                            ],
+                          );
                   }),
                 ),
               ),
@@ -296,7 +439,7 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.grey,
                 ),
               ),
-              Container(
+              SizedBox(
                 height: Dimensions.height120,
                 width: double.infinity,
                 // color: Colors.amber,
@@ -359,9 +502,63 @@ class _HomePageState extends State<HomePage> {
                       ],
                     );
                   } else {
-                    return Center(
-                      child:
-                          CircularProgressIndicator(color: AppColors.mainColor),
+                    // return Center(
+                    //   child:
+                    //       CircularProgressIndicator(color: AppColors.mainColor),
+                    // );
+                    return Row(
+                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: Dimensions.width10,
+                              right: Dimensions.width10),
+                          child: Image.asset(
+                            AppImage.mF,
+                            scale: MediaQuery.of(context).size.height / 750,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(right: Dimensions.width10),
+                          child: SizedBox(
+                            width: Dimensions.width180 + Dimensions.width45,
+                            // color: Colors.amber,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'ບັນຊີເງິນກູ້',
+                                  style: TextStyle(
+                                      fontSize: Dimensions.font20,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                Text(
+                                  '',
+                                  style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: Dimensions.font16),
+                                ),
+                                Text(
+                                  '',
+                                  style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: Dimensions.font16),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                            right: Dimensions.width10,
+                          ),
+                          child: Image.asset(
+                            AppImage.qr,
+                            scale: MediaQuery.of(context).size.height / 750,
+                          ),
+                        )
+                      ],
                     );
                   }
                 })),

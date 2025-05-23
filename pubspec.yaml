@@ -32,6 +32,7 @@ dependencies:
   google_maps_flutter: ^2.7.0
   geocoding: ^3.0.0
   carousel_slider_plus: ^6.0.0
+  webview_flutter: ^4.8.0
 
   
 

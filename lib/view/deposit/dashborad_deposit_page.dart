@@ -33,95 +33,101 @@ class _DeshboradDepositPageState extends State<DeshboradDepositPage> {
             onTaps: () {},
           ),
           GetBuilder<InfoCrdController>(builder: (data) {
-            return Container(
-              height: Dimensions.height100,
-              width: double.infinity,
-              decoration: BoxDecoration(color: AppColors.bgColor2),
-              child: Padding(
-                padding: EdgeInsets.all(Dimensions.height10),
-                child: Row(
-                  children: [
-                    Image.asset(AppImage.mF),
-                    SizedBox(width: Dimensions.width10),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              isvisible
-                                  ? data.infoaccList[0].acno
-                                  : '231 xxxx xxxx 123',
-                              style: TextStyle(
-                                  color: Colors.black.withOpacity(0.8),
-                                  fontSize: Dimensions.font20,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(
-                              width: Dimensions.width30,
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  isvisible = !isvisible;
-                                });
-                              },
-                              child: Container(
-                                height: Dimensions.height30,
-                                width: Dimensions.width100,
-                                decoration: BoxDecoration(
-                                    color: AppColors.mainColor,
-                                    borderRadius: BorderRadius.circular(
-                                        Dimensions.radius20),
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: Colors.grey.shade400,
-                                          offset: const Offset(1, 2),
-                                          blurRadius: 3)
-                                    ]),
-                                child: Center(
-                                  child: Text(
-                                    'ສະເເດງ',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: Dimensions.font16),
+            if (data.infoaccList.isEmpty) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else {
+              return Container(
+                height: Dimensions.height100,
+                width: double.infinity,
+                decoration: BoxDecoration(color: AppColors.bgColor2),
+                child: Padding(
+                  padding: EdgeInsets.all(Dimensions.height10),
+                  child: Row(
+                    children: [
+                      Image.asset(AppImage.mF),
+                      SizedBox(width: Dimensions.width10),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                isvisible
+                                    ? data.infoaccList[0].acno
+                                    : '231 xxxx xxxx 123',
+                                style: TextStyle(
+                                    color: Colors.black.withOpacity(0.8),
+                                    fontSize: Dimensions.font20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                width: Dimensions.width30,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    isvisible = !isvisible;
+                                  });
+                                },
+                                child: Container(
+                                  height: Dimensions.height30,
+                                  width: Dimensions.width100,
+                                  decoration: BoxDecoration(
+                                      color: AppColors.mainColor,
+                                      borderRadius: BorderRadius.circular(
+                                          Dimensions.radius20),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Colors.grey.shade400,
+                                            offset: const Offset(1, 2),
+                                            blurRadius: 3)
+                                      ]),
+                                  child: Center(
+                                    child: Text(
+                                      'ສະເເດງ',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: Dimensions.font16),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Image.asset(
-                              AppImage.kip,
-                              scale: Dimensions.font26,
-                              color: AppColors.mainColor,
-                            ),
-                            SizedBox(width: Dimensions.width10 / 2.5),
-                            Text(
-                              NumberFormat.currency(
-                                      locale: 'lo',
-                                      customPattern: '#,### \u00a4',
-                                      symbol: 'ກີບ',
-                                      decimalDigits: 2)
-                                  .format(data.infoaccList[0].balance),
-                              style: TextStyle(
-                                  color: Colors.black.withOpacity(0.8),
-                                  fontSize: Dimensions.font16,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        )
-                      ],
-                    )
-                  ],
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Image.asset(
+                                AppImage.kip,
+                                scale: Dimensions.font26,
+                                color: AppColors.mainColor,
+                              ),
+                              SizedBox(width: Dimensions.width10 / 2.5),
+                              Text(
+                                NumberFormat.currency(
+                                        locale: 'lo',
+                                        customPattern: '#,### \u00a4',
+                                        symbol: 'ກີບ',
+                                        decimalDigits: 2)
+                                    .format(data.infoaccList[0].balance),
+                                style: TextStyle(
+                                    color: Colors.black.withOpacity(0.8),
+                                    fontSize: Dimensions.font16,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          )
+                        ],
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            );
+              );
+            }
           }),
           Expanded(
             child: GridView.count(

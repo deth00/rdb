@@ -20,6 +20,7 @@ class AppConstants {
   static const String DEPOSIT_URL = 'api/dpt/get/info';
   static const String BASE_LOCAL_URL = 'http://127.0.0.1:8000/';
   static const String LOGIN_URL = 'api/apiloginTest';
+  // static const String LOGIN_URL = 'api/apilogin';
   static const String LOGOUT_URL = 'api/apilogout';
 
   static const String PHONE = "";
@@ -29,5 +30,5 @@ class AppConstants {
   static const String TOKEN = "";
   static const String TOKEN_DPS = "";
   static const String TOKEN_CRD =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiYXV0aF9pZCI6NSwiYXV0aF9uYW1lIjoibmJiIiwiYXV0aF9wYXNzIjoiJDJiJDEwJHptUWltdTBCOHI2UmRBWHI5OEc1ZWVwVWJ0a0djVk5SZFdqbGRLMS5vWnUzQTRGSEJFaVRxIiwiYXV0aF9zdGFydCI6IjIwMjMtMDktMTRUMDY6MDk6MDQuMDAwWiJ9LCJpYXQiOjE3MTU1NzI5NzQsImV4cCI6MTcyMzM0ODk3NH0.Qeu30YegewTKnyjyurywbjyCzi8e9SmTtxjddiVhHJw";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiYXV0aF9pZCI6NSwiYXV0aF9uYW1lIjoibmJiIiwiYXV0aF9wYXNzIjoiJDJiJDEwJHptUWltdTBCOHI2UmRBWHI5OEc1ZWVwVWJ0a0djVk5SZFdqbGRLMS5vWnUzQTRGSEJFaVRxIiwiYXV0aF9zdGFydCI6IjIwMjMtMDktMTRUMDY6MDk6MDQuMDAwWiJ9LCJpYXQiOjE3NDc4MTcwOTgsImV4cCI6MTc2MzgwMTA5OH0.HQzHZtQbSjhLkMNBFp0b0ffRYln9aRv9LEKIWv1Jsx0";
 }
